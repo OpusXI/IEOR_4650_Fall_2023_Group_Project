@@ -57,8 +57,6 @@ for name in playerNames:
 ### Player Data Harvesting - Goalkeeper ###
 # We need to create a dictionary that will hold all of our player data. We will then convert this dictionary to a pandas dataframe.
 # These will be the keys for our dictionary
-# GOALKEEPERS
-# First we collect all the stats we want into a list, along with the corresponding tags and attributes from the html doc.
 goalkeeperStatsKeys = (('Name', 'div', {'class':'name t-colour'}),
                     ('Team', 'div', {'class':'info'}),
                     ('Apps', 'span', {'data-stat':'appearances'}),
@@ -146,6 +144,7 @@ midfielderStats = {stat: [] for stat, tags, attrs in midfielderStatsKeys}
 forwardStats = {stat: [] for stat, tags, attrs in forwardsStatsKeys}
 
 # Now fill this dictionary with the relevant information.
+counter = 1
 for pslink in indivPlayerLinks:
     playerRequest = requests.get(pslink)
     playerSoup = BeautifulSoup(playerRequest.text, 'html.parser')
@@ -156,9 +155,13 @@ for pslink in indivPlayerLinks:
                 if stat == 'Name':
                     goalkeeperStats[stat].append(unidecode(playerSoup.find(tags, attrs = attrs).text.strip()))
                 elif stat == 'Team':
-                    goalkeeperStats[stat].append(playerSoup.find_all(tags, attrs = attrs)[0].text.strip())
+                    team = playerSoup.find_all(tags, attrs = attrs)[0].text.strip()
+                    goalkeeperStats[stat].append(team)
                 else:
-                    goalkeeperStats[stat].append(int(playerSoup.find(tags, attrs = attrs).text.replace(',', '').strip()))
+                    try:
+                        goalkeeperStats[stat].append(int(playerSoup.find(tags, attrs = attrs).text.replace(',', '').strip()))
+                    except AttributeError:
+                        goalkeeperStats[stat].append('NA')
     
     elif position == "Defender":
         #repeat for defenders
@@ -167,9 +170,13 @@ for pslink in indivPlayerLinks:
                 if stat == 'Name':
                     defenderStats[stat].append(unidecode(playerSoup.find(tags, attrs = attrs).text.strip()))
                 elif stat == 'Team':
-                    defenderStats[stat].append(playerSoup.find_all(tags, attrs = attrs)[0].text.strip())
+                    team = playerSoup.find_all(tags, attrs = attrs)[0].text.strip()
+                    defenderStats[stat].append(team)
                 else:
-                    defenderStats[stat].append(int(playerSoup.find(tags, attrs = attrs).text.replace(',', '').strip()))
+                    try:
+                        defenderStats[stat].append(int(playerSoup.find(tags, attrs = attrs).text.replace(',', '').strip()))
+                    except AttributeError:
+                        defenderStats[stat].append('NA')
     
     elif position == "Midfielder":
         #repeat for midfielders
@@ -178,10 +185,14 @@ for pslink in indivPlayerLinks:
                 if stat == 'Name':
                     midfielderStats[stat].append(unidecode(playerSoup.find(tags, attrs = attrs).text.strip()))
                 elif stat == 'Team':
-                    midfielderStats[stat].append(playerSoup.find_all(tags, attrs = attrs)[0].text.strip())
+                    team = playerSoup.find_all(tags, attrs = attrs)[0].text.strip()
+                    midfielderStats[stat].append(team)
                 else:
-                    midfielderStats[stat].append(int(playerSoup.find(tags, attrs = attrs).text.replace(',', '').strip()))
-    
+                    try:
+                        midfielderStats[stat].append(int(playerSoup.find(tags, attrs = attrs).text.replace(',', '').strip()))
+                    except AttributeError:
+                        midfielderStats[stat].append('NA')
+                        
     elif position == "Forward":
         #repeat for forwards
         for stat, tags, attrs in forwardsStatsKeys:
@@ -189,12 +200,17 @@ for pslink in indivPlayerLinks:
                 if stat == 'Name':
                     forwardStats[stat].append(unidecode(playerSoup.find(tags, attrs = attrs).text.strip()))
                 elif stat == 'Team':
-                    forwardStats[stat].append(playerSoup.find_all(tags, attrs = attrs)[0].text.strip())
+                    team = playerSoup.find_all(tags, attrs = attrs)[0].text.strip()
+                    forwardStats[stat].append(team)
                 else:
-                    forwardStats[stat].append(int(playerSoup.find(tags, attrs = attrs).text.replace(',', '').strip()))
+                    try:
+                        forwardStats[stat].append(int(playerSoup.find(tags, attrs = attrs).text.replace(',', '').strip()))
+                    except AttributeError:
+                        forwardStats[stat].append('NA')
 
-    print(f"scraped: {pslink} - {position}")
-    time.sleep(1)
+    print(f"scraped: {pslink} - {position} - {team} ({counter}/{len(indivPlayerLinks)})")
+    counter += 1
+    time.sleep(0.5)
 
 gkAllStats = pd.DataFrame(goalkeeperStats)
 defAllStats = pd.DataFrame(defenderStats)
