@@ -8,7 +8,7 @@ import numpy as np
 from sklearn import linear_model, model_selection
 import time
 
-# from dataScraping import namesWithoutAccent
+from dataScraping import namesWithoutAccent
 
 salarySiteRequest = requests.get("https://www.spotrac.com/epl/")
 salarySoup = BeautifulSoup(salarySiteRequest.text, 'html.parser')
@@ -54,7 +54,17 @@ for paylink in payroll_links:
 payrolls = pd.DataFrame({'Club':clubs, 'Anual Payroll':club_payrolls})
 salaries = pd.DataFrame({'Player':players, 'Annual salary':player_wages})
 
+# only keep the players we have data for from the other database
+filteredPlayers = []
+filteredWages = []
+for player in namesWithoutAccent:
+    if player in players:
+        filteredPlayers.append(player)
+        filteredWages.append(player_wages[players.index(player)])
+
+filteredSalaries = pd.DataFrame({'Player':filteredPlayers, 'Annual salary':filteredWages})
+
 # Save the dataframes to CSV files
 payrolls.to_csv("./data/salaries/club_spending.csv", index=False)
 salaries.to_csv("./data/salaries/player_salaries.csv", index=False)
-
+filteredSalaries.to_csv("./data/salaries/filtered_player_salaries.csv", index=False)
