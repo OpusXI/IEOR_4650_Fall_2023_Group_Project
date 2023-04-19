@@ -216,7 +216,8 @@ fwdAllStats = pd.DataFrame(forwardStats)
 ### Average GK Data to per game stats ###
 avgGKStats = pd.DataFrame({'Name':gkAllStats['Name'], 
                     'Win rate':gkAllStats['Wins'] / gkAllStats['Apps'], 
-                    'Loss rate':gkAllStats['Losses'] / gkAllStats['Apps']})
+                    'Loss rate':gkAllStats['Losses'] / gkAllStats['Apps'],
+                    'Team':gkAllStats['Team']})
 
 for stat,_,_ in goalkeeperStatsKeys[5:]:
     avgGKStats['Average ' + stat] = gkAllStats[stat] / gkAllStats['Apps']
@@ -224,7 +225,8 @@ for stat,_,_ in goalkeeperStatsKeys[5:]:
 ### Average Def Data to per game stats ###
 avgDefStats = pd.DataFrame({'Name':defAllStats['Name'],
                             'Win rate':defAllStats['Wins'] / defAllStats['Apps'],
-                            'Loss rate':defAllStats['Losses'] / defAllStats['Apps']})
+                            'Loss rate':defAllStats['Losses'] / defAllStats['Apps'],
+                            'Team':defAllStats['Team']})
 
 for stat,_,_ in defenderStatsKeys[5:]:
     avgDefStats['Average ' + stat] = defAllStats[stat] / defAllStats['Apps']
@@ -232,7 +234,8 @@ for stat,_,_ in defenderStatsKeys[5:]:
 ### Average Mid Data to per game stats ###
 avgMidStats = pd.DataFrame({'Name':midAllStats['Name'],
                             'Win rate':midAllStats['Wins'] / midAllStats['Apps'],
-                            'Loss rate':midAllStats['Losses'] / midAllStats['Apps']})
+                            'Loss rate':midAllStats['Losses'] / midAllStats['Apps'],
+                            'Team':midAllStats['Team']})
 
 for stat,_,_ in midfielderStatsKeys[5:]:
     avgMidStats['Average ' + stat] = midAllStats[stat] / midAllStats['Apps']
@@ -240,7 +243,8 @@ for stat,_,_ in midfielderStatsKeys[5:]:
 ### Average Fwd Data to per game stats ###
 avgFwdStats = pd.DataFrame({'Name':fwdAllStats['Name'],
                             'Win rate':fwdAllStats['Wins'] / fwdAllStats['Apps'],
-                            'Loss rate':fwdAllStats['Losses'] / fwdAllStats['Apps']})
+                            'Loss rate':fwdAllStats['Losses'] / fwdAllStats['Apps'],
+                            'Team':fwdAllStats['Team']})
 
 for stat,_,_ in forwardsStatsKeys[5:]:
     avgFwdStats['Average ' + stat] = fwdAllStats[stat] / fwdAllStats['Apps']
