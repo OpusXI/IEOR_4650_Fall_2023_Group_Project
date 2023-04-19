@@ -1,11 +1,7 @@
 # Import all the modules required.
 import requests
 import pandas as pd
-import numpy as np
 from bs4 import BeautifulSoup
-import matplotlib.pyplot as plt
-import numpy as np
-from sklearn import linear_model, model_selection
 import time
 from unidecode import unidecode
 
@@ -49,7 +45,7 @@ for team in teamLinks:
     time.sleep(1)
 print("Player names scraped successfully!")
 
-# slight issue with player names with wierd accents. They don't appear in the links but in the player name so we need to differentiate
+# slight issue with player names with weird accents. They don't appear in the links but in the player name so we need to differentiate
 namesWithoutAccent = []
 for name in playerNames:
     namesWithoutAccent.append(unidecode(name))
