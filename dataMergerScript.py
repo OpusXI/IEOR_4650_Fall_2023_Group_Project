@@ -48,3 +48,47 @@ for i in range(len(filePaths)):
 
 # save to CSV output
 df.to_csv("./data/players/england-premier-league-players-2017-to-2022-stats.csv", index=False)
+
+## League Data ##
+
+# Read in data
+matchPathOne = "./data/league/england-premier-league-teams-2017-to-2018-stats.csv"
+matchPathTwo = "./data/league/england-premier-league-teams-2018-to-2019-stats.csv"
+matchPathThree = "./data/league/england-premier-league-teams-2019-to-2020-stats.csv"
+matchPathFour = "./data/league/england-premier-league-teams-2020-to-2021-stats.csv"
+matchPathFive = "./data/league/england-premier-league-teams-2021-to-2022-stats.csv"
+
+# Put filepaths into a list
+fileList = [matchPathOne, matchPathTwo, matchPathThree, matchPathFour, matchPathFive]
+
+# Join all dataframes into one
+for i in range(len(fileList)):
+    if i == 0:
+        df = pd.read_csv(fileList[i])
+    else:
+        df = pd.concat([df, pd.read_csv(fileList[i])], axis=0, ignore_index=True)
+     
+# Save to CSV output   
+df.to_csv("./data/league/england-premier-league-teams-2017-to-2022-stats.csv", index=False)
+
+## League Data 2 ##
+
+# Read in data
+matchPathOne = "./data/league/england-premier-league-teams2-2017-to-2018-stats.csv"
+matchPathTwo = "./data/league/england-premier-league-teams2-2018-to-2019-stats.csv"
+matchPathThree = "./data/league/england-premier-league-teams2-2019-to-2020-stats.csv"
+matchPathFour = "./data/league/england-premier-league-teams2-2020-to-2021-stats.csv"
+matchPathFive = "./data/league/england-premier-league-teams2-2021-to-2022-stats.csv"
+
+# Put filepaths into a list
+fileList = [matchPathOne, matchPathTwo, matchPathThree, matchPathFour, matchPathFive]
+
+# Join all dataframes into one
+for i in range(len(fileList)):
+    if i == 0:
+        df = pd.read_csv(fileList[i])
+    else:
+        df = pd.concat([df, pd.read_csv(fileList[i])], axis=0, ignore_index=True)
+     
+# Save to CSV output   
+df.to_csv("./data/league/england-premier-league-teams2-2017-to-2022-stats.csv", index=False)
