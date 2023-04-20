@@ -172,6 +172,8 @@ def lin_reg_output(X,y):
 X_selected = X_train[selected_features]
 
 linear_model = lin_reg_output(X_selected,y)
+
+### The most important features are goals_scored_per_match, clean_sheets_away, and card_per_match_home
     
     
 
