@@ -1,21 +1,42 @@
 import tkinter as tk
 from tkinter import ttk
 
-# Function to handle the "Calculate" button click
 def calculate():
-    # Implement the logic for calculating the optimized team
-    # using the selected constraints
-    output_text = "Optimized team will be shown here."
+    # Grab weights from manual_entry_vars
+    weights = []
+    
+    for i in range(4):
+        tab_weights = [float(manual_entry_vars[i][j].get()) for j in range(7)]
+        weights.append(tab_weights)
+    
+    weightsGK = weights[0]
+    weightsDef = weights[1]
+    weightsMid = weights[2]
+    weightsFwd = weights[3]
+    
+    # Grab budget integer from budget_entry
+    budget = int(budget_var.get())
+    
+    # Get number of players for each position in dropdown_vars
+    num_players = [var.get() for var in dropdown_vars]
+    
+    numGK = num_players[0]
+    numDef = num_players[1]
+    numMid = num_players[2]
+    numFwd = num_players[3]
+    
+    # Call clustering ranking function here
+    
+    # Store ranked dataframes 
+    
+    # Call team building function here
+    
+    output_text = f"GK: {weightsGK} - {numGK} players \nDEF: {weightsDef} - {numDef} players \nMID: {weightsMid} - {numMid} players \nFWD: {weightsFwd} - {numFwd} players \nBudget: {budget}"
     output_box.config(state="normal")
     output_box.delete(1.0, tk.END)
     output_box.insert(tk.END, output_text)
     output_box.config(state="disabled")
 
-def simulate():
-    # Implement the logic for simulating the team performance
-    # using the selected option from the dropdown
-    simulation_value = "Simulation value will be shown here."
-    simulation_result.config(text=simulation_value)
 
 def update_total_players(*args):
     total_players = sum([var.get() for var in dropdown_vars])
@@ -25,12 +46,25 @@ def update_total_players(*args):
     else:
         total_players_label.config(fg="black")
 
-# Create the main application window
+def manual_entry_update(i, j):
+    def inner_function(*args):
+        try:
+            value = float(manual_entry_vars[i][j].get())
+            manual_entry_vars[i][j].set("{:.2f}".format(value))
+        except ValueError:
+            manual_entry_vars[i][j].set("0.00")
+        update_sum_label(i)
+    return inner_function
+
+def update_sum_label(i):
+    current_sum = sum(float(manual_entry_vars[i][j].get()) for j in range(7))
+    sum_labels[i].config(text=f"Sum: {current_sum:.2f}")
+
 root = tk.Tk()
 root.title("FutMoneybol")
-root.geometry("730x450")
+root.geometry("730x500")
+root.resizable(False, False)
 
-# Create the top row with 4 dropdown menus for selecting number of players
 top_frame = tk.Frame(root)
 top_frame.pack(pady=10)
 
@@ -40,16 +74,68 @@ dropdown_vars = []
 for position in positions:
     label = tk.Label(top_frame, text=position)
     label.pack(side=tk.LEFT, padx=10)
-    
+
     var = tk.IntVar()
     var.trace("w", update_total_players)
     dropdown = ttk.Combobox(top_frame, textvariable=var, values=list(range(12)), width=5)
     dropdown.pack(side=tk.LEFT, padx=10)
     dropdown_vars.append(var)
 
-# Create the budget input field and the "Calculate" button
+container_frame = tk.Frame(root)
+container_frame.pack(pady=20)
+
+slider_notebook = ttk.Notebook(container_frame)
+slider_notebook.pack(side=tk.LEFT, padx=10)
+
+tab_labels = ['GK', 'DEF', 'MID', 'FWD']
+slider_labels = [
+    ["Shot Conv. Rate", "Shots on Target", "Passes Completed", "Shot Total", "Duels Total", "Mins per Card", "Assists"],
+    ["Shot Conv. Rate", "Shots on Target", "Passes Completed", "Shot Total", "Duels Total", "Mins per Card", "Assists"],
+    ["Shot Conv. Rate", "Shots on Target", "Passes Completed", "Shot Total", "Duels Total", "Mins per Card", "Assists"],
+    ["Shot Conv. Rate", "Shots on Target", "Passes Completed", "Shot Total", "Duels Total", "Mins per Card", "Assists"]
+]
+
+manual_entry_vars = []
+sum_labels = []
+
+# Default values for each tab
+default_values = [
+    ["0.10", "0.20", "0.15", "0.05", "0.25", "0.15", "0.10"],
+    ["0.30", "0.10", "0.20", "0.10", "0.10", "0.10", "0.10"],
+    ["0.15", "0.15", "0.15", "0.15", "0.20", "0.10", "0.10"],
+    ["0.40", "0.20", "0.20", "0.10", "0.05", "0.03", "0.02"]
+]
+
+for i in range(4):
+    tab_frame = tk.Frame(slider_notebook)
+    slider_notebook.add(tab_frame, text=tab_labels[i])
+
+    tab_manual_entries = []
+    for j in range(7):
+        slider_label = tk.Label(tab_frame, text=slider_labels[i][j])
+        slider_label.grid(row=j, column=0, padx=10, pady=5)
+
+        manual_entry_var = tk.StringVar()
+        manual_entry_var.set(default_values[i][j])  # Set the default value
+        manual_entry = tk.Entry(tab_frame, textvariable=manual_entry_var, width=6)
+        manual_entry.grid(row=j, column=1, padx=10, pady=5)
+        tab_manual_entries.append(manual_entry_var)
+
+        enter_button = tk.Button(tab_frame, text="Enter", command=manual_entry_update(i, j))
+        enter_button.grid(row=j, column=2, padx=10, pady=5)
+
+    sum_label = tk.Label(tab_frame, text=f"Sum: {sum([float(val) for val in default_values[i]]):.2f}")
+    sum_label.grid(row=8, column=0, columnspan=3, pady=10)
+    sum_labels.append(sum_label)
+
+    manual_entry_vars.append(tab_manual_entries)
+
+
+output_box = tk.Text(container_frame, wrap=tk.WORD, height=4*5, width=40, state="disabled")
+output_box.pack(side=tk.LEFT, padx=10)
+
 budget_frame = tk.Frame(root)
-budget_frame.pack(pady=10, fill=tk.X)
+budget_frame.pack(side=tk.BOTTOM, pady=10, fill=tk.X)
 
 budget_label = tk.Label(budget_frame, text="Budget:")
 budget_label.pack(side=tk.LEFT, padx=10)
@@ -64,38 +150,5 @@ calculate_button.pack(side=tk.LEFT, padx=10)
 total_players_label = tk.Label(budget_frame, text="Total players: 0")
 total_players_label.pack(side=tk.RIGHT, padx=10)
 
-
-# Create a container frame for the sliders and output box
-container_frame = tk.Frame(root)
-container_frame.pack(pady=20)
-
-# Create the sliders for future constraints
-slider_frame = tk.Frame(container_frame)
-slider_frame.pack(side=tk.LEFT, padx=10)
-
-sliders = []
-for i in range(4):
-    slider = tk.Scale(slider_frame, from_=0, to=100, orient=tk.HORIZONTAL)
-    slider.pack(pady=5)
-    sliders.append(slider)
-
-# Create the output box to display the optimized team
-output_box = tk.Text(container_frame, wrap=tk.WORD, height=4*5, width=40, state="disabled")
-output_box.pack(side=tk.LEFT, padx=10)
-
-# Create the simulation row with the "Simulate" button, a dropdown box, and a label to display the final simulation value
-simulation_frame = tk.Frame(root)
-simulation_frame.pack(side=tk.BOTTOM, pady=10)
-
-simulate_button = tk.Button(simulation_frame, text="Simulate", command=simulate)
-simulate_button.pack(side=tk.LEFT, padx=10)
-
-simulation_options = ["Goals", "Season Points", "League Standing"]
-simulation_var = tk.StringVar()
-simulation_dropdown = ttk.Combobox(simulation_frame, textvariable=simulation_var, values=simulation_options, width=10)
-simulation_dropdown.pack(side=tk.LEFT, padx=10)
-
-simulation_result = tk.Label(simulation_frame, text="")
-simulation_result.pack(side=tk.LEFT, padx=10)
-
 root.mainloop()
+
