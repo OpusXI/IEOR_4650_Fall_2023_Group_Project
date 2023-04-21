@@ -256,11 +256,6 @@ for i, cluster in enumerate(clusters):
     if cluster not in cluster_labels:
         cluster_labels[cluster] = []
     cluster_labels[cluster].append(curr_players.iloc[i]['full_name'])
-
-# Print player names in each cluster
-for i in range(6):
-    print(f'Cluster {i}: {", ".join(cluster_labels[i])}')
-    
     
 cluster_stats = pd.concat([curr_players['full_name'], players_selected_features], axis=1)
 cluster_stats['cluster'] = clusters
@@ -271,3 +266,31 @@ for i in range(6):
     print(f'Cluster {i}: {", ".join(cluster_labels[i])}')
     print(cluster_means.loc[i])
     print('---------------------------')
+    
+
+weights = [0.5, 0.25, 0.25, 0.1, 0.1, 0.1, 0.1]
+selected_featueres = ['shot_conversion_rate_overall',
+                      'shots_on_target_total_overall', 
+                      'passes_completed_total_overall', 'shots_total_overall',
+                      'duels_total_overall', 'min_per_card_overall',
+                      'assists_away']
+
+# Calculate player value based on weighted average of features
+cluster_stats['value'] = (cluster_stats[selected_featueres] * weights).sum(axis=1)
+
+# Rank players by value within each cluster
+player_rankings = {}
+for cluster in range(6):
+    cluster_data = cluster_stats[cluster_stats['cluster'] == cluster]
+    cluster_data = cluster_data.sort_values(by='value', ascending=False)
+    player_rankings[cluster] = cluster_data.index.values
+
+# Print player rankings by cluster
+for cluster in range(6):
+    print(f'Cluster {cluster}:')
+    for i, player_index in enumerate(player_rankings[cluster]):     
+        
+        player_name = cluster_stats.loc[player_index]['full_name']
+        player_value = cluster_stats.loc[player_index]['value']
+        print(f'{i+1}. {player_name} - {player_value:.2f}')
+    
