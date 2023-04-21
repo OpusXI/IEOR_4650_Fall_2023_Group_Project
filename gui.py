@@ -141,6 +141,7 @@ budget_label = tk.Label(budget_frame, text="Budget:")
 budget_label.pack(side=tk.LEFT, padx=10)
 
 budget_var = tk.StringVar()
+budget_var.set("100000000")
 budget_entry = tk.Entry(budget_frame, textvariable=budget_var, width=10)
 budget_entry.pack(side=tk.LEFT, padx=10)
 
