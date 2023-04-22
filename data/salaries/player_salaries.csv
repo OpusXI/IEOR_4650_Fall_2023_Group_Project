@@ -21,10 +21,10 @@ Mark Travers,1040000
 Kieffer Moore,780000
 Jaidon Anthony,520000
 Joe Rothwell,416000
-Dango Ouattara,NA
-Darren Randolph,NA
-Antoine Semenyo,NA
-Ilya Zabarnyi,NA
+Dango Ouattara,1820000
+Darren Randolph,1300000
+Antoine Semenyo,1040000
+Ilya Zabarnyi,1300000
 Gabriel Jesus,13780000
 Thomas Partey,10400000
 Oleksandr Zinchenko,7800000
@@ -48,7 +48,7 @@ Ainsley Maitland-Niles,1820000
 Matt Turner,1820000
 Jakub Kiwior,1508000
 Reiss Nelson,780000
-Jorge Luiz Frello Filho,NA
+Jorge Luiz Frello Filho,0
 Lucas Digne,8500000
 Boubacar Kamara,7800000
 Philippe Coutinho,6500000
@@ -70,7 +70,7 @@ John McGinn,2600000
 Ezri Konsa,1560000
 Ludwig Augustinsson,1040000
 Jed Steer,1040000
-Jhon Durán,NA
+Jhon Durán,1560000
 Ben Mee,2860000
 Bryan Mbeumo,2340000
 Kristoffer Ajer,1820000
@@ -113,7 +113,7 @@ Julio Enciso,520000
 Kaoru Mitoma,520000
 Jakub Moder,520000
 Jan Paul van Hecke,260000
-Facundo Buonanotte,NA
+Facundo Buonanotte,780000
 Raheem Sterling,16900000
 Kalidou Koulibaly,15340000
 N'Golo Kante,15080000
@@ -144,8 +144,8 @@ Benoit Badiashile,2340000
 Armando Broja,2080000
 Marcus Bettinelli,1820000
 Gabriel Slonina,1040000
-Malo Gusto,NA
-Noni Madueke,NA
+Malo Gusto,400000
+Noni Madueke,2600000
 Wilfried Zaha,6760000
 Odsonne Edouard,4930000
 Nathaniel Clyne,4200000
@@ -169,7 +169,7 @@ Will Hughes,1820000
 Joel Ward,1820000
 Eberech Eze,1560000
 Nathan Ferguson,1500000
-Naouirou Ahamada,NA
+Naouirou Ahamada,1040000
 Abdoulaye Doucouré,6240000
 Alex Iwobi,6240000
 Yerry Mina,6240000
@@ -195,7 +195,7 @@ Dwight McNeil,1300000
 Ruben Vinagre,1250000
 Anthony Gordon,520000
 Eldin Jakupovic,260000
-Ellis Simms,NA
+Ellis Simms,364000
 Bernd Leno,4680000
 Layvin Kurzawa,4640000
 Aleksandar Mitrovic,4160000
@@ -220,7 +220,7 @@ Antonee Robinson,1430000
 Manor Solomon,1040000
 Marek Rodak,780000
 George Wickens,260000
-Sylvester Jasper,NA
+Sylvester Jasper,158236
 Rodrigo Machado,5200000
 Patrick Bamford,3640000
 Luis Sinisterra,3380000
@@ -244,7 +244,7 @@ Joel Robles,1040000
 Joe Gelhardt,860000
 Crysencio Summerville,780000
 Kristoffer Klaesson,570000
-Maximilian Wöber,NA
+Maximilian Wöber,1820000
 Jamie Vardy,7280000
 James Maddison,5720000
 Jonny Evans,5200000
@@ -268,10 +268,10 @@ Alex Smithies,1560000
 Daniel Amartey,1090000
 Kiernan Dewsbury-Hall,1040000
 Luke Thomas,600000
-Victor Kristiansen,NA
-Mateus Martins,NA
-Harry Souttar,NA
-Thanawat Suengchitthawon,NA
+Victor Kristiansen,0
+Mateus Martins,0
+Harry Souttar,2080000
+Thanawat Suengchitthawon,0
 Mohamed Salah,18200000
 Virgil Van Dijk,11440000
 Thiago Alcántara do Nascimento,10400000
@@ -300,7 +300,7 @@ Harvey Elliott,2080000
 Curtis Jones,780000
 Calvin Ramsay,780000
 Caoimhin Kelleher,520000
-Stefan Bajcetic,NA
+Stefan Bajcetic,0
 Kevin De Bruyne,20800000
 Erling Haaland,19500000
 Jack Grealish,15600000
@@ -351,7 +351,7 @@ Diogo Dalot,1300000
 Facundo Pellistri,1040000
 Anthony Elanga,260000
 Teden Mengi,260000
-Kobbie Mainoo,NA
+Kobbie Mainoo,0
 Bruno Guimarães,6240000
 Alexander Isak,6240000
 Matt Targett,5200000
@@ -378,7 +378,7 @@ Jacob Murphy,1820000
 Elliot Anderson,1560000
 Mark Gillespie,600000
 Matthew Longstaff,390000
-Kell Watts,NA
+Kell Watts,0
 Jesse Lingard,10400000
 Dean Henderson,5200000
 Morgan Gibbs-White,4160000
@@ -411,11 +411,11 @@ Harry Toffolo,780000
 Joe Worrall,780000
 Carlos Miguel Ribiero Dias,520000
 Jordan Smith,130000
-Brandon Aguilera,NA
-Felipe Augusto de Almeida,NA
-Andre Ayew,NA
-Adnan Kanuric,NA
-Jonjo Shelvey,NA
+Brandon Aguilera,275000
+Felipe Augusto de Almeida,0
+Andre Ayew,3720000
+Adnan Kanuric,0
+Jonjo Shelvey,3667000
 James Ward-Prowse,5200000
 Theo Walcott,3900000
 Joe Aribo,3640000
@@ -440,10 +440,10 @@ Willy Caballero,1040000
 Armel Bella-Kotchap,780000
 Samuel Edozie,780000
 Valentino Livramento,416000
-Carlos Alcaraz,NA
-James Bree,NA
-Paul Onuachu,NA
-Kamaldeen Sulemana,NA
+Carlos Alcaraz,1300000
+James Bree,520000
+Paul Onuachu,1560000
+Kamaldeen Sulemana,0
 Harry Kane,10400000
 Heung-Min Son,9984000
 Ivan Perisic,9270000
@@ -490,9 +490,9 @@ Aaron Cresswell,2600000
 Vladimir Coufal,1820000
 Flynn Downes,1300000
 Ben Johnson,1040000
-Jamal Baptiste,NA
-Luiz Goulart,NA
-Danny Ings,NA
+Jamal Baptiste,39520
+Luiz Goulart,0
+Danny Ings,6500000
 Raul Jimenez,5200000
 Jose Moutinho,5200000
 Gonçalo Guedes,4680000
@@ -514,10 +514,140 @@ Max Kilman,780000
 Rayan Aït-Nouri,520000
 Francisco Oliveira,520000
 Toti Gomes,260000
-Daniel Bentley,NA
-Craig Dawson,NA
-Joe Hodge,NA
-Mario Lemina,NA
-Louie Moulden,NA
-Pablo Sarabia,NA
-Andreas Söndergaard,NA
+Daniel Bentley,0
+Craig Dawson,0
+Joe Hodge,0
+Mario Lemina,0
+Louie Moulden,0
+Pablo Sarabia,0
+Andreas Söndergaard,0
+Aaron Lennon,2860000
+Aaron Mooy,3130000
+Aaron Ramsey,7000000
+Abdelhamid Sabiri,936000
+Adam David Lallana,4700000
+Adam Legzdins,260000
+Ademola Lookman,2132000
+Adrian Mariappa,780000
+Adrián San Miguel del Castillo,3016000
+Adrien Sebastian Perruchet Silva,5800000
+Ahmed Hegazi,1300000
+Ahmed Musa,2500000
+Alberto Moreno,1352000
+Alex Pritchard,1560000
+Alexandre Lacazette,9467000
+Alexis Sanchez,3000000
+Alfie Mawson,1664000
+Alfie Whiteman,130000
+Allan Nyom,884000
+Alvaro Morata,8164000
+Ander Herrera,6000000
+João Cancelo,4160000
+Jeff Hendrick,2100000
+Jorginho,5720000
+Bruno Miguel Borges Fernandes,12480000
+Rodri,8320000
+Mathias Jattah-Njie Jørgensen,2266857
+Andrew Omobamidele,630000
+Sadio Mané,4680000
+Cristiano Ronaldo,62000000
+Virgil van Dijk,11440000
+Philip Foden,11700000
+Jarrod Bowen,5000000
+Gabriel dos Santos Magalhães,2600000
+Antonio Rüdiger,6100000
+Frederico Rodrigues Santos,6760000
+İlkay Gündoğan,7280000
+Fabinho,9360000
+Pierre-Emile Højbjerg,5300000
+Takumi Minamino,3900000
+Raphael Dias Belloli,3302000
+Emmanuel Bonaventure Dennis,2400000
+Rúben Diogo Da Silva Neves,3460818
+Harvey Lewis Barnes,5200000
+Teemu Pukki,1300000
+Marcos Alonso,5200000
+Pablo Fornals Malla,3500000
+Hee-Chan Hwang,1560000
+Mohamed Saïd Benrahma,1200000
+Rúben Santos Gato Alves Dias,10727630
+Tomáš Souček,3500000
+Mark Noble,2600000
+Romelu Lukaku,16900000
+João Moutinho,5200000
+Diego Llorente,2340000
+Bruno Guimarães Rodriguez Moura,8320000
+Gnaly Maxwell Cornet,3328000
+Rodrigo,5200000
+N'Golo Kanté,15080000
+Dan Gosling,1820000
+Sergio Reguilón Rodríguez,2500000
+Divock Origi,3120000
+Pascal Groß,3380000
+Ismaïla Sarr,3276000
+Mohamed Salisu Abdul Karim,1200000
+Romain Saïss,2496000
+Nathan Aké,4800000
+Kortney Hause,420000
+Raúl Alonso Jiménez Rodríguez,
+Marc Albrighton,
+Joël Veltman,
+Oriol Romeu,
+Fabian Schär,
+Gabriel Teodoro Martinelli Silva,
+Thiago Alcantara,
+Daniel William John Ings,
+Marc Cucurella Saseta,
+Cristian Gabriel Romero,
+Odsonne Édouard,
+Kurt Happy Zouma,
+Naby Deco Keïta,
+Eberechi Eze,
+Cesar Azpilicueta,
+Ezri Konsa Ngoyo,
+Jonny,
+Sergi Canós Tenes,
+Alexandre Lacazette,
+Caglar Söyüncü,
+Isaac Hayden,
+Mateo Kovačić,
+Moussa Sissoko,
+Joshua King,
+Mateusz Klich,
+Juan Camilo Hernández Suárez,
+Davinson Sánchez Mina,
+Daniel Castelo Podence,
+Grant Hanley,
+Josh Brownhill,
+Javier Manquillo Gaitán,
+Matt Doherty,
+Aaron Lennon,
+Timo Werner,
+Hassane Kamara,
+João Pedro Junqueira de Jesus,
+Jack Cork,
+Ayoze Perez,
+Emerson Aparecido Leite de Souza Junior,
+Arthur Masuaku,
+Joshua Sargent,
+Nathan Michael Collins,
+Enock Mwepu,
+Fernando Luiz Rosa,
+Séamus Coleman,
+Connor Roberts,
+Nélson Semedo,
+Mads Roerslev Rasmussen,
+Jarrad Branthwaite,
+Raphaël Varane,
+Milot Rashica,
+Steven Bergwijn,
+Lucas Rodrigues Moura da Silva,
+Juraj Kucka,
+Pierre Lees Melou,
+Kenny Mclean,
+Paul Pogba,
+Joseph Willock,
+Nikola Vlašić,
+Rayan Aït Nouri,
+Ferrán Torres García,
+Benjamin Johnson,

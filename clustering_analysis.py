@@ -20,7 +20,7 @@ selected_features = ['full_name', 'position','shot_conversion_rate_overall',
                       'duels_total_overall', 'min_per_card_overall',
                       'assists_away']
 
-players_master = pd.read_csv("data\players\england-premier-league-players-2017-to-2022-stats.csv")
+players_master = pd.read_csv("./data/players/england-premier-league-players-2017-to-2022-stats.csv")
 curr_players = players_master[players_master['Season']=='2021-2022']
 curr_players = curr_players[curr_players['appearances_overall']>0]
 
@@ -94,11 +94,14 @@ def positions_clustering(df,position,weights,n_clusters,output=True,plot=False):
 ## Adjust the weights according to their position
 
 weights = [0.4, 0.2, 0.2, 0.05, 0.05, 0.05, 0.05]
-z = positions_clustering(curr_players, 'Forward', weights, 6, output=True)
+z = positions_clustering(curr_players, 'Forward', weights, 6, output=False)
+z.to_csv("./data/players/clustered_fwds.csv", index=False)
 
 weights = [0.4, 0.2, 0.2, 0.05, 0.05, 0.05, 0.05]
-z = positions_clustering(curr_players, 'Midfielder', weights, 6, output=True)
+z = positions_clustering(curr_players, 'Midfielder', weights, 6, output=False)
+z.to_csv("./data/players/clustered_mids.csv", index=False)
 
 weights = [0.4, 0.2, 0.2, 0.05, 0.05, 0.05, 0.05]
-z = positions_clustering(curr_players, 'Defender', weights, 6,output=True)
+z = positions_clustering(curr_players, 'Defender', weights, 6,output=False)
+z.to_csv("./data/players/clustered_defs.csv", index=False)
 
