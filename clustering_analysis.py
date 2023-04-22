@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 ### CLUSTERING ###
 
 ## Features that were selected from the player_statistical_analysis.py
-selected_featueres = ['full_name', 'position','shot_conversion_rate_overall',
+selected_features = ['full_name', 'position','shot_conversion_rate_overall',
                       'shots_on_target_total_overall', 
                       'passes_completed_total_overall', 'shots_total_overall',
                       'duels_total_overall', 'min_per_card_overall',
@@ -27,7 +27,7 @@ curr_players = curr_players[curr_players['appearances_overall']>0]
 
 def positions_clustering(df,position,weights,n_clusters,output=True,plot=False):
     
-    df = df[df['position']==position][selected_featueres]
+    df = df[df['position']==position][selected_features]
     X = df.drop(['full_name','position'],axis=1)
     scaler = StandardScaler()
     X = scaler.fit_transform(X)

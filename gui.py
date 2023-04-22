@@ -1,9 +1,13 @@
 import tkinter as tk
 from tkinter import ttk
 
+from clustering_analysis import positions_clustering
+from clustering_analysis import curr_players
+
 def calculate():
     # Grab weights from manual_entry_vars
     weights = []
+    numClusters = 6
     
     for i in range(4):
         tab_weights = [float(manual_entry_vars[i][j].get()) for j in range(7)]
@@ -26,12 +30,26 @@ def calculate():
     numFwd = num_players[3]
     
     # Call clustering ranking function here
+    forwardRankingFrame = positions_clustering(curr_players, 'Forward', weightsFwd, numClusters, output=False)
+    midfielderRankingFrame = positions_clustering(curr_players, 'Midfielder', weightsMid, numClusters, output=False)
+    defenderRankingFrame = positions_clustering(curr_players, 'Defender', weightsDef, numClusters, output=False)
+    # goalkeeperRankingFrame = positions_clustering(curr_players, 'Goalkeeper', weightsGK, numClusters, output=False)
     
-    # Store ranked dataframes 
+    # filter the ranking frames to only include players with ranking 1 and then take the maximum of the performance column and take the name of the player
+    topForwards = forwardRankingFrame[forwardRankingFrame['rankings'] == 1]
+    topMidfielders = midfielderRankingFrame[midfielderRankingFrame['rankings'] == 1]
+    topDefenders = defenderRankingFrame[defenderRankingFrame['rankings'] == 1]
+    # topGoalkeepers = goalkeeperRankingFrame[goalkeeperRankingFrame['rankings'] == 1]
+    
+    #take the max of the performance column and take the name of the player
+    topForward = topForwards[topForwards['performance'] == topForwards['performance'].max()]['full_name'].values[0]
+    topMidfielder = topMidfielders[topMidfielders['performance'] == topMidfielders['performance'].max()]['full_name'].values[0]
+    topDefender = topDefenders[topDefenders['performance'] == topDefenders['performance'].max()]['full_name'].values[0]
+    # topGoalkeeper = 'Not Implemented'
     
     # Call team building function here
     
-    output_text = f"GK: {weightsGK} - {numGK} players \nDEF: {weightsDef} - {numDef} players \nMID: {weightsMid} - {numMid} players \nFWD: {weightsFwd} - {numFwd} players \nBudget: {budget}"
+    output_text = f"Top Attacker: {topForward}\nTop Midfielder: {topMidfielder}\nTop Defender: {topDefender}\n"
     output_box.config(state="normal")
     output_box.delete(1.0, tk.END)
     output_box.insert(tk.END, output_text)
@@ -130,9 +148,12 @@ for i in range(4):
 
     manual_entry_vars.append(tab_manual_entries)
 
+# Create the output box to display the optimized team
+output_title_label = tk.Label(container_frame, text="Optimized Team Output", font=("Helvetica", 14))
+output_title_label.pack(side=tk.TOP, pady=(10, 5))
 
 output_box = tk.Text(container_frame, wrap=tk.WORD, height=4*5, width=40, state="disabled")
-output_box.pack(side=tk.LEFT, padx=10)
+output_box.pack(side=tk.LEFT, padx=10, pady=(0, 10))
 
 budget_frame = tk.Frame(root)
 budget_frame.pack(side=tk.BOTTOM, pady=10, fill=tk.X)
@@ -152,4 +173,3 @@ total_players_label = tk.Label(budget_frame, text="Total players: 0")
 total_players_label.pack(side=tk.RIGHT, padx=10)
 
 root.mainloop()
-
