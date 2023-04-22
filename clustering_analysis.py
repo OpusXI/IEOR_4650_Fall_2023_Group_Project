@@ -25,7 +25,7 @@ curr_players = players_master[players_master['Season']=='2021-2022']
 curr_players = curr_players[curr_players['appearances_overall']>0]
 
 
-def positions_clustering(df,position,weights,output=True):
+def positions_clustering(df,position,weights,n_clusters,output=True,plot=False):
     
     df = df[df['position']==position][selected_featueres]
     X = df.drop(['full_name','position'],axis=1)
@@ -41,15 +41,16 @@ def positions_clustering(df,position,weights,output=True):
         wcss.append(kmeans.inertia_)
     
     # Plot elbow curve
-    plt.plot(range(1, 11), wcss)
-    plt.title('Elbow Method')
-    plt.xlabel('Number of clusters')
-    plt.ylabel('WCSS')
-    plt.show()
+    if plot==True:
+        plt.plot(range(1, 11), wcss)
+        plt.title('Elbow Method')
+        plt.xlabel('Number of clusters')
+        plt.ylabel('WCSS')
+        plt.show()
     ####################################
 
     # Clustering of players
-    n_clusters = 6
+    n_clusters = n_clusters
     kmeans = KMeans(n_clusters=n_clusters, random_state=42)
     clusters = kmeans.fit_predict(X)
     df['cluster'] = clusters
@@ -80,7 +81,7 @@ def positions_clustering(df,position,weights,output=True):
             names = ','.join(cluster_data['full_name'].tolist())
             print("The players in the cluster are:" + names)
             
-            cluster_means = cluster_data.mean()
+            cluster_means = cluster_data.drop('full_name',axis=1).mean()
             print("------------------------------------------")
             print("The mean values of this cluster are:")
             print(cluster_means)
@@ -93,11 +94,11 @@ def positions_clustering(df,position,weights,output=True):
 ## Adjust the weights according to their position
 
 weights = [0.4, 0.2, 0.2, 0.05, 0.05, 0.05, 0.05]
-z = positions_clustering(curr_players, 'Forward', output=True)
+z = positions_clustering(curr_players, 'Forward', weights, 6, output=True)
 
 weights = [0.4, 0.2, 0.2, 0.05, 0.05, 0.05, 0.05]
-z = positions_clustering(curr_players, 'Midfielder',output=True)
+z = positions_clustering(curr_players, 'Midfielder', weights, 6, output=True)
 
 weights = [0.4, 0.2, 0.2, 0.05, 0.05, 0.05, 0.05]
-z = positions_clustering(curr_players, 'Defender',output=True)
+z = positions_clustering(curr_players, 'Defender', weights, 6,output=True)
 
