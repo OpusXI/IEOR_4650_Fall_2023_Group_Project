@@ -1,4 +1,4 @@
-Player,Salary,Year
+full_name,salary,year
 Kevin De Bruyne,16683333,2018
 Alexis Sanchez,16380000,2018
 N'Golo Kante,15080000,2018
@@ -16,10 +16,10 @@ Virgil Van Dijk,8580000,2018
 David Silva,8320000,2018
 Juan Mata,8320000,2018
 Pierre-Emerick Aubameyang,8190000,2018
-Cesc Fàbregas,8112000,2018
+Cesc Fabregas,8112000,2018
 Henrikh Mkhitaryan,7800000,2018
 Kepa Arrizabalaga,7800000,2018
-César Azpilicueta,7800000,2018
+Cesar Azpilicueta,7800000,2018
 Raheem Sterling,7800000,2018
 Fernandinho Luis Roza,7800000,2018
 Vincent Kompany,7800000,2018
@@ -59,7 +59,7 @@ Hector Bellerin,5720000,2018
 Petr Cech,5720000,2018
 Jorge Luiz Frello Filho,5720000,2018
 Anthony Martial,5720000,2018
-André Schurrle,5408000,2018
+Andre Schurrle,5408000,2018
 Jordan Pickford,5208333,2018
 Sead Kolasinac,5200000,2018
 Bernd Leno,5200000,2018
@@ -144,7 +144,7 @@ Ryan Bertrand,3640000,2018
 Fraser Forster,3640000,2018
 Kevin Wimmer,3640000,2018
 Serge Aurier,3640000,2018
-Abdoulaye Doucouré,3640000,2018
+Abdoulaye Doucoure,3640000,2018
 Andre Gray,3640000,2018
 Michail Antonio,3640000,2018
 Manuel Lanzini,3640000,2018
@@ -190,7 +190,7 @@ Nacer Chadli,3120000,2018
 Jay Rodriguez,3120000,2018
 Aymeric Laporte,3098333,2018
 Adam Lallana,3042000,2018
-Pedro Rodríguez Ledesma,3000000,2018
+Pedro Rodriguez Ledesma,3000000,2018
 Jeffrey Schlupp,2912000,2018
 Ben Mee,2860000,2018
 James McArthur,2860000,2018
@@ -251,7 +251,7 @@ Jose Izquierdo,2340000,2018
 Davy Propper,2340000,2018
 Steven Defour,2340000,2018
 Joe Hart,2340000,2018
-Fabricio Agosto Ramírez,2340000,2018
+Fabricio Agosto Ramirez,2340000,2018
 Sergio Rico,2340000,2018
 Marc Albrighton,2340000,2018
 Richad Ghezzal,2340000,2018
@@ -295,7 +295,7 @@ Sam Gallagher,2080000,2018
 Angus Gunn,2080000,2018
 Peter Crouch,2080000,2018
 Michel Vorm,2080000,2018
-Étienne Capoue,2080000,2018
+Etienne Capoue,2080000,2018
 Fabian Balbuena,2080000,2018
 Ryan Fredericks,2080000,2018
 Arthur Masuaku,2080000,2018
@@ -457,14 +457,14 @@ Ryan Bennett,1040000,2018
 Joe Bennett,1015000,2018
 Neil Etheridge,1015000,2018
 Diego Rico,1001000,2018
-Pablo Hernández,988000,2018
+Pablo Hernandez,988000,2018
 Lee Peltier,987500,2018
 Matthew Connolly,987000,2018
 Greg Cunningham,987000,2018
 Nathaniel Mendez-Laing,961667,2018
 Danny Ward,960000,2018
 Leon Balogun,950000,2018
-Alexander Sörloth,936000,2018
+Alexander Sorloth,936000,2018
 Abdelhamid Sabiri,936000,2018
 Rajiv van La Parra,936000,2018
 Jake Hesketh,936000,2018
@@ -488,7 +488,7 @@ Jonjoe Kenny,780000,2018
 Philip Billing,780000,2018
 Jo Gorenc-Stankovic,780000,2018
 Ezgjan Alioski,780000,2018
-Fousseni Diabaté,780000,2018
+Fousseni Diabate,780000,2018
 Timothy Fosu-Mensah,780000,2018
 Louis Thompson,780000,2018
 Oliver Norwood,780000,2018
@@ -501,7 +501,7 @@ Neeskens Kebano,700000,2018
 Eunan O'Kane,676000,2018
 Alexander Tettey,676000,2018
 Jazz Richards,675000,2018
-Ibrahima Cissé,650000,2018
+Ibrahima Cisse,650000,2018
 Aboubakar Kamara,650000,2018
 Kadeem Harris,625000,2018
 Connor Mahoney,624000,2018
@@ -536,7 +536,7 @@ Anders Lindegaard,416000,2018
 Jamal Blackman,416000,2018
 Beni Baningime,416000,2018
 Tyias Browning,416000,2018
-Floyd Ayité,416000,2018
+Floyd Ayite,416000,2018
 Ryan Sessegnon,416000,2018
 Hamza Choudhury,416000,2018
 Brahim Diaz,416000,2018
@@ -560,7 +560,7 @@ Axel Tuanzebe,260000,2018
 Julien Ngoy,260000,2018
 Thibaud Verlinden,260000,2018
 Kieron Freeman,234000,2018
-Mads Bech Sørensen,208000,2018
+Mads Bech Sorensen,208000,2018
 Dennis Srbeny,208000,2018
 George Baldock,208000,2018
 John Lundstrom,208000,2018

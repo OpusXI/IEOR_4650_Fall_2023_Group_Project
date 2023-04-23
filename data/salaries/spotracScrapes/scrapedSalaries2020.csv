@@ -1,4 +1,4 @@
-Player,Salary,Year
+full_name,salary,year
 Gareth Bale,31200000,2020
 Kevin De Bruyne,20800000,2020
 David De Gea,19500000,2020
@@ -11,7 +11,7 @@ Edinson Cavani,13000000,2020
 Anthony Martial,13000000,2020
 Sergio Aguero,11967000,2020
 Thomas Partey,10400000,2020
-Thiago Alcántara do Nascimento,10400000,2020
+Thiago Alcantara do Nascimento,10400000,2020
 Mohamed Salah,10400000,2020
 Marcus Rashford,10400000,2020
 Harry Kane,10400000,2020
@@ -27,7 +27,7 @@ Harry Maguire,8464286,2020
 Juan Mata,8320000,2020
 Bruno Fernandes,8022857,2020
 Kepa Arrizabalaga,7800000,2020
-César Azpilicueta,7800000,2020
+Cesar Azpilicueta,7800000,2020
 Kai Havertz,7800000,2020
 Mateo Kovacic,7800000,2020
 Fernandinho Luis Roza,7800000,2020
@@ -42,7 +42,7 @@ Christian Pulisic,7150000,2020
 Wilfried Zaha,6760000,2020
 Kasper Schmeichel,6760000,2020
 David Luiz,6535000,2020
-Rodrigo Hernández Cascante,6300000,2020
+Rodrigo Hernandez Cascante,6300000,2020
 Jack Grealish,6240000,2020
 Callum Hudson-Odoi,6240000,2020
 Christian Benteke,6240000,2020
@@ -86,7 +86,7 @@ Dele Alli,5200000,2020
 Hugo Lloris,5200000,2020
 Rui Patricio,5200000,2020
 Jared Bowen,5000000,2020
-Cengiz Ünder,4900000,2020
+Cengiz Under,4900000,2020
 Alex Telles,4840000,2020
 Nathan Ake,4800000,2020
 Ross Barkley,4766667,2020
@@ -101,8 +101,8 @@ Georginio Wijnaldum,4680000,2020
 Gabriel Jesus,4680000,2020
 Benjamin Mendy,4680000,2020
 Aaron Wan-Bissaka,4680000,2020
-Joelinton Cassio Apolinário de Lira,4500000,2020
-Pablo Marí,4420000,2020
+Joelinton Cassio Apolinario de Lira,4500000,2020
+Pablo Mari,4420000,2020
 Kieran Tierney,4200000,2020
 Nathaniel Clyne,4200000,2020
 Tyrone Mings,4160000,2020
@@ -121,7 +121,7 @@ Ben Godfrey,4000000,2020
 Nelson Semedo,4000000,2020
 Cedric Soares,3900000,2020
 Ollie Watkins,3900000,2020
-Abdoulaye Doucouré,3900000,2020
+Abdoulaye Doucoure,3900000,2020
 Jean-Philippe Gbamin,3900000,2020
 Alphonse Areola,3900000,2020
 Onyinye Ndidi,3900000,2020
@@ -215,7 +215,7 @@ Joe Hart,2700000,2020
 Kenny Tete,2650000,2020
 Jefferson Lerma,2600000,2020
 Calum Chambers,2600000,2020
-Gabriel Magalhães,2600000,2020
+Gabriel Magalhaes,2600000,2020
 Pascal Gross,2600000,2020
 Alireza Jahanbakhsh,2600000,2020
 Neal Maupay,2600000,2020
@@ -245,7 +245,7 @@ Pedro Neto,2600000,2020
 Ruben Neves,2600000,2020
 Roque Mesa,2548000,2020
 Erik Pieters,2500000,2020
-Sergio Reguilón,2500000,2020
+Sergio Reguilon,2500000,2020
 Jack Stephens,2496000,2020
 Federico Fernandez,2459600,2020
 Emiliano Martinez,2444000,2020
@@ -261,7 +261,7 @@ Lewis Dunk,2340000,2020
 Jose Izquierdo,2340000,2020
 Davy Propper,2340000,2020
 Joshua King,2340000,2020
-Fabricio Agosto Ramírez,2340000,2020
+Fabricio Agosto Ramirez,2340000,2020
 Marc Albrighton,2340000,2020
 Ayoze Perez,2340000,2020
 Caglar Soyuncu,2340000,2020
@@ -295,7 +295,7 @@ Dwight Gayle,2080000,2020
 Jamaal Lascelles,2080000,2020
 Fabian Schar,2080000,2020
 Angus Gunn,2080000,2020
-Étienne Capoue,2080000,2020
+Etienne Capoue,2080000,2020
 Robert Snodgrass,2080000,2020
 Fabian Balbuena,2080000,2020
 Ryan Fredericks,2080000,2020
@@ -312,7 +312,7 @@ Anthony Knockaert,1950000,2020
 Bobby Reid,1950000,2020
 Jonny Castro,1907000,2020
 Jonny Otto,1907000,2020
-Rayan Aït Nouri,1900000,2020
+Rayan Ait Nouri,1900000,2020
 Lewis Cook,1820000,2020
 Dan Gosling,1820000,2020
 Adam Smith,1820000,2020
@@ -337,7 +337,7 @@ Paul Dummett,1820000,2020
 Javier Manquillo,1820000,2020
 Henri Saivet,1820000,2020
 Nathaniel Chalobah,1820000,2020
-Fernando Marçal,1820000,2020
+Fernando Marcal,1820000,2020
 Youri Tielemans,1718000,2020
 Douglas Luiz,1709396,2020
 Sander Berge,1700000,2020
@@ -419,7 +419,7 @@ Kevin Long,1200000,2020
 Mohammed Salisu,1200000,2020
 Kyle Walker-Peters,1200000,2020
 Japhet Tanganga,1200000,2020
-Saïd Benrahma,1200000,2020
+Said Benrahma,1200000,2020
 Goncalo Cardoso,1200000,2020
 Aaron Connolly,1196000,2020
 Florent Hadergjonaj,1196000,2020
@@ -436,7 +436,7 @@ Diego Llorente,1144000,2020
 Isaac Hayden,1144000,2020
 Romain Saiss,1144000,2020
 Terence Kongolo,1140000,2020
-Onel Hernández,1140000,2020
+Onel Hernandez,1140000,2020
 Ivan Toney,1092000,2020
 Daniel Amartey,1092000,2020
 Grady Diangana,1058200,2020
@@ -445,7 +445,7 @@ David Brooks,1040000,2020
 Emile Smith Rowe,1040000,2020
 Joe Willock,1040000,2020
 Bryan Mbeumo,1040000,2020
-Christian Nørgaard,1040000,2020
+Christian Norgaard,1040000,2020
 Mathias Jensen,1040000,2020
 Chris Lowe,1040000,2020
 Adam Forshaw,1040000,2020
@@ -467,7 +467,7 @@ Diego Rico,1001000,2020
 Robin Olsen,1000000,2020
 Wesley Fofana,1000000,2020
 Ben Johnson,1000000,2020
-Pablo Hernández,988000,2020
+Pablo Hernandez,988000,2020
 Greg Cunningham,987000,2020
 Jack Harrison,975000,2020
 Darnell Furlong,962000,2020
@@ -475,7 +475,7 @@ Nathaniel Mendez-Laing,961667,2020
 Matthew Longstaff,960000,2020
 Josh Dasilva,936000,2020
 Sam McQueen,936000,2020
-Adalberto Peñaranda,936000,2020
+Adalberto Penaranda,936000,2020
 Marco Stiepermann,910000,2020
 Joe Lolley,910000,2020
 Jayson Molumby,900000,2020
@@ -496,8 +496,8 @@ Max Sanders,800000,2020
 Caoimhin Kelleher,800000,2020
 Philip Billing,780000,2020
 Reiss Nelson,780000,2020
-Rúnar Alex Rúnarsson,780000,2020
-Sergi Canós,780000,2020
+Runar Alex Runarsson,780000,2020
+Sergi Canos,780000,2020
 Ethan Pinnock,780000,2020
 Steven Alzate,780000,2020
 Jo Gorenc-Stankovic,780000,2020
@@ -538,12 +538,12 @@ Charly Musonda,550000,2020
 Gary Madine,546000,2020
 Vitaly Janelt,520000,2020
 Jakub Moder,520000,2020
-Robert Sánchez,520000,2020
+Robert Sanchez,520000,2020
 Joao Virginia,520000,2020
 Stefan Johansen,520000,2020
 Harvey Barnes,520000,2020
 Patrick Roberts,520000,2020
-Jacob Lungi Sörensen,520000,2020
+Jacob Lungi Sorensen,520000,2020
 Jack Colback,520000,2020
 Joe Worrall,520000,2020
 Jack O'Connell,520000,2020
@@ -560,7 +560,7 @@ Oliver Burke,457600,2020
 Ouasim Bouy,450850,2020
 Michael McGovern,442000,2020
 James Justin,429000,2020
-Halil Dervişoğlu,420000,2020
+Halil Dervisoglu,420000,2020
 Neil Taylor,416000,2020
 Kortney Hause,416000,2020
 Ezri Konsa,416000,2020
@@ -568,7 +568,7 @@ Jed Steer,416000,2020
 Christian Walton,416000,2020
 Luke Ayling,416000,2020
 Stuart Dallas,416000,2020
-Emiliano Buendía,416000,2020
+Emiliano Buendia,416000,2020
 Ben Marshall,416000,2020
 John Fleck,416000,2020
 Domingos Quina,416000,2020
@@ -590,7 +590,7 @@ Przemyslaw Placheta,320000,2020
 Will Norris,300000,2020
 John Ruddy,300000,2020
 Charlie Goode,292500,2020
-Loïc Mbe Soh,290000,2020
+Loic Mbe Soh,290000,2020
 Wes Foderingham,286000,2020
 Marcus Forss,260000,2020
 Tariqe Fosu,260000,2020
@@ -606,7 +606,7 @@ Kalvin Phillips,234000,2020
 Niels Nkounkou,230000,2020
 Marek Rodak,230000,2020
 Max Lowe,228800,2020
-Mads Bech Sørensen,208000,2020
+Mads Bech Sorensen,208000,2020
 George Baldock,208000,2020
 John Lundstrom,208000,2020
 Ben Osborn,208000,2020
@@ -617,7 +617,7 @@ Moises Caicedo,182000,2020
 Tyler Roberts,182000,2020
 Alex Mighten,180000,2020
 Ellery Balcombe,170000,2020
-Jan Žambůrek,161200,2020
+Jan Zamburek,161200,2020
 Kean Bryan,156000,2020
 Daniel Bachmann,156000,2020
 Jeremy Ngakia,130000,2020
@@ -630,7 +630,7 @@ Sam Greenwood,70000,2020
 Sean Longstaff,52000,2020
 Gavin Kilkenny,40000,2020
 Leif Davis,31000,2020
-Bertrand Traoré,0,2020
+Bertrand Traore,0,2020
 Jairo Riedewald,0,2020
 Jean-Philippe Mateta,0,2020
 Gaetano Berardi,0,2020

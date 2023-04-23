@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 import requests
 from selenium import webdriver
 import time
+from unidecode import unidecode
 
 PATH = "/Applications/chromedriver"
 driver = webdriver.Chrome(PATH)
@@ -12,8 +13,8 @@ baseSpotRacURL = "https://www.spotrac.com/epl/rankings/"
 yearsToScrape = ["2017/", "2018/", "2019/", "2020/", "2021/"]
 
 def createDataFrame(data, year):
-    df = pd.DataFrame(data, columns=["Player", "Salary"])
-    df['Year'] = year
+    df = pd.DataFrame(data, columns=["full_name", "salary"])
+    df['year'] = year
     return df
 
 def convertSalaryToInt(salary_string):
@@ -34,6 +35,8 @@ def scrapePlayerSalaries(baseURL, yearToScrape, driver):
     
     for row in rows:
         playerName = row.find('h3').find('a').text.strip()
+        # use unidecode to remove accents from names
+        playerName = unidecode(playerName)
         salary = row.find("td", class_="rank-value").text.strip()
         
         playerSalaries.append([playerName, convertSalaryToInt(salary)])
@@ -58,14 +61,14 @@ df2021 = pd.read_csv('./data/salaries/spotracScrapes/scrapedSalaries2021.csv')
 
 combinedDF = pd.concat([df2017, df2018, df2019, df2020, df2021], ignore_index=True)
 
-playerSalaryDatabase = combinedDF.sort_values(['Year', 'Player'], ascending=[False, True])
+playerSalaryDatabase = combinedDF.sort_values(['year', 'full_name'], ascending=[False, True])
 
 def keepMostRecentNonZeroSalary(df):
-    groupedDataframe = df.groupby('Player')
+    groupedDataframe = df.groupby('full_name')
     result = []
     
     for name, group in groupedDataframe:
-        nonZeroSalaries = group[group['Salary'] != 0]
+        nonZeroSalaries = group[group['salary'] != 0]
         
         if not nonZeroSalaries.empty:
             mostRecentNonZero = nonZeroSalaries.iloc[0]

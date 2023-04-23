@@ -9,6 +9,7 @@ import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
+from unidecode import unidecode
 
 
 ### CLUSTERING ###
@@ -20,8 +21,11 @@ selected_features = ['full_name', 'position','shot_conversion_rate_overall',
                       'duels_total_overall', 'min_per_card_overall',
                       'assists_away']
 
-players_master = pd.read_csv("data\players\england-premier-league-players-2017-to-2022-stats.csv")
+players_master = pd.read_csv("./data/players/england-premier-league-players-2017-to-2022-stats.csv")
 curr_players = players_master[players_master['Season']=='2021-2022']
+
+# use unidecode to remove accents from names
+curr_players['full_name'] = curr_players['full_name'].apply(unidecode)
 curr_players = curr_players[curr_players['appearances_overall']>0]
 
 
@@ -93,11 +97,36 @@ def positions_clustering(df,position,weights,n_clusters,output=True,plot=False):
 
 ## Adjust the weights according to their position
 
-weights = [0.4, 0.2, 0.2, 0.05, 0.05, 0.05, 0.05]
-z = positions_clustering(curr_players, 'Forward', weights, 6, output=True)
+def partialNameMatch(nameParts1, nameParts2):
+    return set(nameParts1).issubset(set(nameParts2)) or set(nameParts2).issubset(set(nameParts1))
+
+salaryDataframe = pd.read_csv("./data/salaries/scrapedSalaries.csv")
+
+def zipSalaryData(stats, salary):
+    #add salary column to stats dataframe
+    stats['salary'] = [0]*len(stats)
+    for statsIndex, statsRow in stats.iterrows():
+        statsName = statsRow['full_name']
+        statsNameParts = statsName.split()
+        
+        for salaryIndex, salaryRow in salary.iterrows():
+            salaryName = salaryRow['full_name']
+            salaryNameParts = salaryName.split()
+            
+            if partialNameMatch(statsNameParts, salaryNameParts):
+                stats.at[statsIndex, 'salary'] = salaryRow['salary']
+                break
+    return stats
 
 weights = [0.4, 0.2, 0.2, 0.05, 0.05, 0.05, 0.05]
-z = positions_clustering(curr_players, 'Midfielder', weights, 6, output=True)
+z = positions_clustering(curr_players, 'Forward', weights, 6, output=False)
+z = zipSalaryData(z, salaryDataframe)
+z.to_csv('./data/players/forward_cluster.csv',index=False)
 
 weights = [0.4, 0.2, 0.2, 0.05, 0.05, 0.05, 0.05]
-z = positions_clustering(curr_players, 'Defender', weights, 6,output=True)
+z = positions_clustering(curr_players, 'Midfielder', weights, 6, output=False)
+z.to_csv('./data/players/midfielder_cluster.csv',index=False)
+
+weights = [0.4, 0.2, 0.2, 0.05, 0.05, 0.05, 0.05]
+z = positions_clustering(curr_players, 'Defender', weights, 6,output=False)
+z.to_csv('./data/players/defender_cluster.csv',index=False)

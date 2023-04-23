@@ -1,4 +1,4 @@
-Player,Salary,Year
+full_name,salary,year
 Aaron Connolly,1196000,2020
 Aaron Cresswell,2600000,2021
 Aaron Lennon,1820000,2019
@@ -8,10 +8,10 @@ Aaron Ramsey,6240000,2018
 Aaron Wan-Bissaka,4680000,2021
 Abdallah Sima,1070000,2021
 Abdelhamid Sabiri,936000,2019
-Abdoulaye Doucouré,3900000,2021
+Abdoulaye Doucoure,3900000,2021
 Aboubakar Kamara,650000,2021
 Achraf Lazaar,468000,2018
-Adalberto Peñaranda,936000,2020
+Adalberto Penaranda,936000,2020
 Adam Armstrong,2490000,2021
 Adam Bogdan,1248000,2017
 Adam Federici,1560000,2017
@@ -46,7 +46,7 @@ Alex Palmer,104000,2017
 Alex Pritchard,1560000,2020
 Alex Smithies,1560000,2021
 Alex Telles,4840000,2021
-Alexander Sörloth,936000,2018
+Alexander Sorloth,936000,2018
 Alexander Tettey,676000,2020
 Alexandre Lacazette,9466673,2021
 Alexis Mac Allister,1600000,2021
@@ -69,6 +69,7 @@ Andre Carrillo,884000,2017
 Andre Gomes,5835000,2021
 Andre Gray,3640000,2020
 Andre Green,312000,2018
+Andre Schurrle,5408000,2019
 Andre-Frank Zambo Anguissa,3484000,2021
 Andreas Christensen,4160000,2021
 Andreas Pereira,1560000,2019
@@ -76,7 +77,6 @@ Andrew Robertson,2600000,2020
 Andrew Surman,1820000,2019
 Andriy Yarmolenko,5980000,2021
 Andros Townsend,2080000,2021
-André Schurrle,5408000,2019
 Andy Carroll,3900000,2020
 Andy King,2080000,2018
 Angel Rangel,1664000,2017
@@ -131,14 +131,14 @@ Bernard Anicio Caldeira Duarte,6240000,2020
 Bernardo Fernandes da Silva Junior,1300000,2019
 Bernardo Silva,7800000,2021
 Bernd Leno,5200000,2021
-Bertrand Traoré,0,2021
+Bertrand Traore,0,2021
 Billy Gilmour,2250000,2021
 Billy Sharp,624000,2021
 Bjorn Engels,2860000,2020
 Boaz Myhill,1352000,2017
 Bobby Reid,1950000,2021
 Bojan Krkic,2496000,2019
-Boubakary Soumaré,5150000,2021
+Boubakary Soumare,5150000,2021
 Brad Smith,1300000,2019
 Brahim Diaz,416000,2018
 Braian Ojeda,550000,2021
@@ -150,7 +150,7 @@ Brendan Galloway,1196000,2018
 Brian Murphy,545000,2018
 Bruno Ecuele Manga,1248000,2018
 Bruno Fernandes,8022857,2021
-Bruno Guimarães,5616000,2021
+Bruno Guimaraes,5616000,2021
 Bruno Jordao,780000,2019
 Bruno Martins Indi,3120000,2021
 Bruno Saltor Grau,1560000,2017
@@ -171,9 +171,10 @@ Carlos Miguel Ribiero Dias,920000,2021
 Carlos Sanchez,2600000,2019
 Cedric Kipre,500000,2021
 Cedric Soares,3900000,2021
-Cengiz Ünder,4900000,2020
+Cengiz Under,4900000,2020
 Cenk Tosun,3120000,2021
-Cesc Fàbregas,8112000,2018
+Cesar Azpilicueta,7800000,2021
+Cesc Fabregas,8112000,2018
 Chancel Mbemba,1820000,2017
 Charlie Adam,1820000,2017
 Charlie Austin,3640000,2019
@@ -195,7 +196,7 @@ Christian Benteke,6240000,2021
 Christian Eriksen,3900000,2018
 Christian Fuchs,2600000,2020
 Christian Kabasele,1560000,2021
-Christian Nørgaard,1040000,2021
+Christian Norgaard,1040000,2021
 Christian Pulisic,7150000,2021
 Christian Walton,416000,2020
 Christoph Zimmermann,1010000,2021
@@ -224,12 +225,11 @@ Craig Dawson,2210000,2021
 Cristian Romero,0,2021
 Cristiano Ronaldo,26800000,2021
 Crysencio Summerville,300000,2021
-Cucho Hernández,0,2021
+Cucho Hernandez,0,2021
 Cuco Martina,1820000,2019
 Curtis Good,624000,2017
 Curtis Jones,390000,2021
 Cyrus Christie,1040000,2021
-César Azpilicueta,7800000,2021
 Dale Stephens,1820000,2021
 Daley Blind,3900000,2017
 Damien Delaney,1300000,2017
@@ -313,7 +313,7 @@ Emerson Palmieri,3510000,2020
 Emerson Royal,2170000,2021
 Emil Krafth,3000000,2021
 Emile Smith Rowe,1040000,2021
-Emiliano Buendía,3900000,2021
+Emiliano Buendia,3900000,2021
 Emiliano Marcondes,730000,2021
 Emiliano Martinez,7488000,2021
 Emre Can,2340000,2017
@@ -331,6 +331,7 @@ Ethan Ampadu,390000,2020
 Ethan Ebanks-Landell,156000,2018
 Ethan Horvath,890000,2021
 Ethan Pinnock,780000,2021
+Etienne Capoue,2080000,2021
 Eunan O'Kane,676000,2019
 Ezequiel Schelotto,1664000,2019
 Ezgjan Alioski,780000,2020
@@ -340,19 +341,19 @@ Fabian Delph,4160000,2021
 Fabian Schar,2080000,2021
 Fabinho Tavares,9360000,2021
 Fabio Silva,4160000,2021
-Fabricio Agosto Ramírez,2340000,2021
+Fabricio Agosto Ramirez,2340000,2021
 Federico Fernandez,2459600,2021
 Felipe Anderson,4420000,2019
 Fernandinho Luis Roza,7800000,2021
 Fernando Llorente,3900000,2018
-Fernando Marçal,1820000,2021
+Fernando Marcal,1820000,2021
 Ferran Torres,2400000,2020
 Fikayo Tomori,750000,2019
 Florent Hadergjonaj,1196000,2021
 Florian Lejeune,1976000,2019
 Florin Andone,2080000,2020
-Floyd Ayité,416000,2019
-Fousseni Diabaté,780000,2018
+Floyd Ayite,416000,2019
+Fousseni Diabate,780000,2018
 Francisco Oliveira,950000,2021
 Francisco Sierralta,494000,2021
 Frank Onyeka,960000,2021
@@ -361,7 +362,7 @@ Freddie Woodman,156000,2019
 Frederic Guilbert,2080000,2019
 Frederico de Paula Santos,6240000,2021
 Gabriel Jesus,4680000,2021
-Gabriel Magalhães,2600000,2021
+Gabriel Magalhaes,2600000,2021
 Gabriel Martinelli,4680000,2021
 Gaetan Bong,1050000,2019
 Gaetano Berardi,0,2020
@@ -392,7 +393,7 @@ Grzegorz Krychowiak,4264000,2017
 Gylfi Sigurdsson,5200000,2021
 Hakim Ziyech,5200000,2021
 Hal Robson-Kanu,1560000,2020
-Halil Dervişoğlu,420000,2020
+Halil Dervisoglu,420000,2020
 Hamza Choudhury,390000,2021
 Harrison Reed,624000,2021
 Harry Arter,1160000,2021
@@ -415,7 +416,7 @@ Heurelho Gomes,1820000,2019
 Hugo Lloris,5200000,2021
 Ian Poveda,457600,2020
 Ibrahim Afellay,1300000,2018
-Ibrahima Cissé,650000,2019
+Ibrahima Cisse,650000,2019
 Ibrahima Diallo,2860000,2021
 Ibrahima Konate,3640000,2021
 Idrissa Gueye,3640000,2018
@@ -443,7 +444,7 @@ Jack Simpson,156000,2019
 Jack Stacey,1560000,2021
 Jack Stephens,2496000,2021
 Jack Wilshere,5200000,2019
-Jacob Lungi Sörensen,520000,2021
+Jacob Lungi Sorensen,520000,2021
 Jacob Murphy,1300000,2021
 Jacob Ramsey,390000,2021
 Jaden Philogene-Bidace,360000,2021
@@ -480,7 +481,7 @@ Jamie Sterry,104000,2019
 Jamie Vardy,7280000,2021
 Jan Bednarek,1040000,2021
 Jan Vertonghen,4628000,2019
-Jan Žambůrek,161200,2020
+Jan Zamburek,161200,2020
 Jannik Vestergaard,3390000,2021
 Japhet Tanganga,1200000,2021
 Jared Bowen,5000000,2021
@@ -508,9 +509,9 @@ Jeremy Ngakia,130000,2021
 Jeremy Pied,2080000,2017
 Jermain Defoe,5380000,2017
 Jerome Sinclair,1040000,2020
+Jese Rodriguez Ruiz,2392000,2017
 Jesse Lingard,3900000,2021
 Jesus Gamez,1820000,2017
-Jesé Rodríguez Ruiz,2392000,2017
 Jimmy Dunne,350000,2020
 Jiri Skalak,1040000,2017
 Jo Gorenc-Stankovic,780000,2021
@@ -535,8 +536,8 @@ Joel Matip,5200000,2018
 Joel Robles,1040000,2017
 Joel Veltman,2000000,2021
 Joel Ward,1820000,2021
-Joelinton Cassio Apolinário de Lira,4500000,2021
-Johann Berg Gudmundsson,1560000,2020
+Joelinton Cassio Apolinario de Lira,4500000,2021
+Johann Berg Gudmundsson,1560000,2021
 John Egan,390000,2021
 John Fleck,416000,2021
 John Lundstrom,208000,2020
@@ -569,6 +570,7 @@ Jose Holebas,1560000,2019
 Jose Ignacio Peleteiro Ramallo,1300000,2019
 Jose Izquierdo,2340000,2020
 Jose Moutinho,5200000,2018
+Jose Sa,1490000,2021
 Jose Salomon Rondon,3120000,2017
 Joselu Mato,2080000,2018
 Josh Brownhill,2080000,2021
@@ -580,7 +582,6 @@ Josh Sims,936000,2017
 Josh Tymon,520000,2021
 Joshua King,2340000,2020
 Joshua Onomah,1560000,2021
-José Sá,1490000,2021
 Jota Peleteiro,1300000,2020
 Juan Foyth,1118000,2019
 Juan Mata,8320000,2021
@@ -591,7 +592,6 @@ Junior Firpo,2200000,2021
 Junior Hoilett,1456000,2020
 Junior Stanislas,1820000,2021
 Jurgen Locadia,2106000,2018
-Jóhann Berg Guðmundsson,1560000,2021
 Kadeem Harris,625000,2018
 Kai Havertz,7800000,2021
 Kalvin Phillips,234000,2021
@@ -665,17 +665,17 @@ Liam Cooper,338000,2021
 Liam Rosenior,1040000,2017
 Lloyd Kelly,1560000,2021
 Loic Damour,468000,2018
+Loic Mbe Soh,290000,2021
 Loris Karius,1300000,2019
 Louis Thompson,780000,2021
 Lovre Kalinic,817000,2019
-Loïc Mbe Soh,290000,2021
 Lucas Digne,7650000,2021
 Lucas Moura,4160000,2021
 Lucas Perez,4160000,2018
 Lucas Torreira,3900000,2019
 Luciano Narsingh,1560000,2017
 Luciano Vietto,2860000,2018
-Luis Díaz,2669333,2021
+Luis Diaz,2669333,2021
 Luka Milivojevic,2860000,2021
 Luka Racic,260000,2020
 Lukas Rupp,1170000,2021
@@ -689,7 +689,7 @@ Lyanco Vojnovic,2500000,2021
 Lyle Taylor,1040000,2021
 Lys Mousset,1300000,2021
 Maarten Stekelenburg,1560000,2018
-Mads Bech Sørensen,208000,2021
+Mads Bech Sorensen,208000,2021
 Mads Roerslev,346667,2021
 Mahmoud Hassan,1690000,2020
 Malang Sarr,6240000,2021
@@ -724,8 +724,8 @@ Marouane Fellaini,7800000,2018
 Martin Dubravka,1976000,2021
 Martin Kelly,1300000,2020
 Martin Montoya,2600000,2019
+Martin Odegaard,4110000,2021
 Martin Olsson,1716000,2019
-Martin Ødegaard,4110000,2021
 Marvelous Nakamba,1690000,2021
 Marvin Zeegelaar,1040000,2017
 Mason Greenwood,3900000,2021
@@ -839,7 +839,7 @@ Oliver Skipp,0,2021
 Olivier Giroud,5720000,2020
 Ollie Watkins,3900000,2021
 Omar Bogle,312000,2019
-Onel Hernández,1140000,2020
+Onel Hernandez,1140000,2020
 Onyinye Ndidi,3900000,2021
 Orestis Karnezis,988000,2017
 Oriol Romeu,3380000,2019
@@ -850,8 +850,8 @@ Oumar Niasse,2860000,2019
 Ovie Ejaria,104000,2017
 Ozan Kabak,3380000,2020
 Pablo Fornals,3500000,2021
-Pablo Hernández,988000,2020
-Pablo Marí,4420000,2020
+Pablo Hernandez,988000,2020
+Pablo Mari,4420000,2020
 Pablo Zabaleta,3900000,2019
 Pape Sarr,1040000,2021
 Pape Souare,1560000,2018
@@ -867,7 +867,7 @@ Paul Pogba,15080000,2021
 Paulo Gazzaniga,700000,2021
 Pedro Neto,2600000,2021
 Pedro Obiang,2860000,2018
-Pedro Rodríguez Ledesma,3000000,2019
+Pedro Rodriguez Ledesma,3000000,2019
 Per Mertesacker,4680000,2017
 Peter Crouch,2080000,2018
 Petr Cech,5720000,2018
@@ -892,8 +892,8 @@ Ramiro Funes Mori,2080000,2017
 Raphael Belloli,3302000,2021
 Raphael Varane,17680000,2021
 Raul Jimenez,2144000,2021
-Rayan Aït Nouri,1900000,2020
-Rayan Aït-Nouri,234000,2021
+Rayan Ait Nouri,1900000,2020
+Rayan Ait-Nouri,234000,2021
 Rayhaan Tulloch,80000,2021
 Reece Burke,156000,2017
 Reece James,3016000,2021
@@ -920,14 +920,14 @@ Robbie Brady,1820000,2020
 Robert Green,1300000,2018
 Robert Huth,1976000,2017
 Robert Kenedy,1300000,2021
+Robert Sanchez,520000,2021
 Robert Snodgrass,2080000,2020
-Robert Sánchez,520000,2021
 Roberto Firmino,9360000,2021
 Roberto Pereyra,2340000,2020
 Robin Koch,2400000,2021
 Robin Olsen,1000000,2020
 Rodrigo Bentancur,3900000,2021
-Rodrigo Hernández Cascante,6300000,2021
+Rodrigo Hernandez Cascante,6300000,2021
 Rodrigo Machado,3000000,2021
 Romain Perraud,2040000,2021
 Romain Saiss,1144000,2021
@@ -940,6 +940,7 @@ Ruben Loftus-Cheek,2808000,2021
 Ruben Neves,2600000,2021
 Ruben Vinagre,1560000,2019
 Rui Patricio,5200000,2020
+Runar Alex Runarsson,780000,2020
 Ryan Bennett,1040000,2019
 Ryan Bertrand,2300000,2021
 Ryan Christie,1110000,2021
@@ -948,8 +949,8 @@ Ryan Fredericks,2080000,2021
 Ryan Schofield,26000,2018
 Ryan Sessegnon,3000000,2021
 Ryan Shawcross,2860000,2020
-Rúnar Alex Rúnarsson,780000,2020
 Sadio Mane,5200000,2021
+Said Benrahma,1200000,2021
 Saido Berahino,4160000,2021
 Salomon Rondon,1050000,2021
 Sam Baldock,1040000,2017
@@ -967,7 +968,6 @@ Saman Ghoddos,780000,2021
 Sander Berge,1700000,2021
 Santi Cazorla,5200000,2017
 Saul Niguez,10310000,2021
-Saïd Benrahma,1200000,2021
 Scott Arfield,1196000,2017
 Scott Carson,1300000,2020
 Scott Dann,3120000,2020
@@ -986,9 +986,9 @@ Sebastien Haller,6000000,2020
 Semi Ajayi,858000,2021
 Sepp van den Berg,260000,2019
 Serge Aurier,3640000,2020
-Sergi Canós,780000,2021
+Sergi Canos,780000,2021
 Sergio Aguero,11967000,2020
-Sergio Reguilón,2500000,2021
+Sergio Reguilon,2500000,2021
 Sergio Rico,2340000,2018
 Sergio Romero,3640000,2020
 Shandon Baptiste,624000,2021
@@ -1001,7 +1001,7 @@ Shkodran Mustafi,4680000,2019
 Simon Francis,1560000,2019
 Simon Mignolet,2860000,2018
 Simon Moore,260000,2020
-Siriki Dembélé,761250,2021
+Siriki Dembele,761250,2021
 Sofiane Boufal,3380000,2019
 Sokratis Papastathopoulos,4784000,2019
 Sol Bamba,728000,2019
@@ -1038,12 +1038,12 @@ Teden Mengi,180000,2021
 Teemu Pukki,1300000,2021
 Terence Kongolo,1140000,2021
 Theo Walcott,3900000,2021
-Thiago Alcántara do Nascimento,10400000,2021
+Thiago Alcantara do Nascimento,10400000,2021
 Thiago Silva,8580000,2021
 Thibaud Verlinden,260000,2021
 Thibaut Courtois,6240000,2017
 Thomas Partey,10400000,2021
-Tiemoué Bakayoko,5720000,2019
+Tiemoue Bakayoko,5720000,2019
 Tim Krul,1300000,2021
 Tim Ream,1404000,2020
 Timm Klose,1040000,2020
@@ -1127,4 +1127,3 @@ Youri Tielemans,1718000,2021
 Yuning Zhang,1612000,2019
 Yves Bissouma,1300000,2021
 Zack Steffen,2392000,2021
-Étienne Capoue,2080000,2021

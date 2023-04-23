@@ -1,4 +1,4 @@
-Player,Salary,Year
+full_name,salary,year
 Kevin De Bruyne,16683333,2017
 Alexis Sanchez,16380000,2017
 Paul Pogba,15080000,2017
@@ -15,7 +15,7 @@ Wayne Rooney,8320000,2017
 David Silva,8320000,2017
 Juan Mata,8320000,2017
 Pierre-Emerick Aubameyang,8190000,2017
-Cesc Fàbregas,8112000,2017
+Cesc Fabregas,8112000,2017
 Henrikh Mkhitaryan,7800000,2017
 Vincent Kompany,7800000,2017
 Raheem Sterling,7800000,2017
@@ -42,7 +42,7 @@ Ashley Young,6240000,2017
 Sead Kolasinac,6214000,2017
 Ander Herrera,5980000,2017
 Hector Bellerin,5720000,2017
-Tiemoué Bakayoko,5720000,2017
+Tiemoue Bakayoko,5720000,2017
 Anthony Martial,5720000,2017
 Marcos Rojo,5720000,2017
 Luke Shaw,5720000,2017
@@ -50,9 +50,9 @@ Joe Hart,5529333,2017
 Jermain Defoe,5380000,2017
 Santi Cazorla,5200000,2017
 Petr Cech,5200000,2017
-César Azpilicueta,5200000,2017
+Cesar Azpilicueta,5200000,2017
 Gary Cahill,5200000,2017
-Pedro Rodríguez Ledesma,5200000,2017
+Pedro Rodriguez Ledesma,5200000,2017
 Antonio Rudiger,5200000,2017
 Mamadou Sakho,5200000,2017
 Wilfried Zaha,5200000,2017
@@ -220,7 +220,7 @@ Adrian San Miguel del Castillo,2600000,2017
 Mohamed Elneny,2574000,2017
 Roque Mesa,2548000,2017
 Jack Stephens,2496000,2017
-Jesé Rodríguez Ruiz,2392000,2017
+Jese Rodriguez Ruiz,2392000,2017
 Jake Livermore,2392000,2017
 Steve Cook,2340000,2017
 Joshua King,2340000,2017
@@ -315,7 +315,7 @@ Jack Butland,1820000,2017
 Leon Britton,1820000,2017
 Tom Carroll,1820000,2017
 Georges-Kevin N'Koudou,1820000,2017
-Étienne Capoue,1820000,2017
+Etienne Capoue,1820000,2017
 Nathaniel Chalobah,1820000,2017
 Heurelho Gomes,1820000,2017
 Younes Kaboul,1820000,2017
@@ -463,7 +463,7 @@ Jan Bednarek,1040000,2017
 Erwin Mulder,1040000,2017
 Paulo Gazzaniga,1040000,2017
 Kyle Walker-Peters,1040000,2017
-Abdoulaye Doucouré,1040000,2017
+Abdoulaye Doucoure,1040000,2017
 Kiko Femenia,1040000,2017
 Jerome Sinclair,1040000,2017
 Marvin Zeegelaar,1040000,2017
@@ -472,7 +472,7 @@ Lee Tomlin,988000,2017
 Orestis Karnezis,988000,2017
 Jack Harrison,975000,2017
 Danny Ward,960000,2017
-Alexander Sörloth,936000,2017
+Alexander Sorloth,936000,2017
 Abdelhamid Sabiri,936000,2017
 Rajiv van La Parra,936000,2017
 Danny Ward,936000,2017
@@ -499,7 +499,7 @@ Jo Gorenc-Stankovic,780000,2017
 Robert Green,780000,2017
 Michael Hefele,780000,2017
 Ezgjan Alioski,780000,2017
-Fousseni Diabaté,780000,2017
+Fousseni Diabate,780000,2017
 Timothy Fosu-Mensah,780000,2017
 Joel Castro Pereira,780000,2017
 Richard Stearman,780000,2017
@@ -514,7 +514,7 @@ Neeskens Kebano,700000,2017
 Florent Hadergjonaj,676000,2017
 Eunan O'Kane,676000,2017
 Jazz Richards,675000,2017
-Ibrahima Cissé,650000,2017
+Ibrahima Cisse,650000,2017
 Aboubakar Kamara,650000,2017
 Ben Hamer,624000,2017
 Trent Alexander-Arnold,624000,2017
@@ -549,7 +549,7 @@ Christian Walton,416000,2017
 Anders Lindegaard,416000,2017
 Jamal Blackman,416000,2017
 Tyias Browning,416000,2017
-Floyd Ayité,416000,2017
+Floyd Ayite,416000,2017
 Ryan Sessegnon,416000,2017
 Joel Coleman,416000,2017
 Hamza Choudhury,416000,2017

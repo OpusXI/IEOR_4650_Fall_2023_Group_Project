@@ -1,4 +1,4 @@
-Player,Salary,Year
+full_name,salary,year
 David De Gea,19500000,2019
 Kevin De Bruyne,16683333,2019
 Raheem Sterling,15600000,2019
@@ -20,7 +20,7 @@ Juan Mata,8320000,2019
 Pierre-Emerick Aubameyang,8190000,2019
 Bruno Fernandes,8022857,2019
 Kepa Arrizabalaga,7800000,2019
-César Azpilicueta,7800000,2019
+Cesar Azpilicueta,7800000,2019
 Mateo Kovacic,7800000,2019
 Fernandinho Luis Roza,7800000,2019
 Bernardo Silva,7800000,2019
@@ -35,7 +35,7 @@ Wilfried Zaha,6760000,2019
 Kasper Schmeichel,6760000,2019
 David Luiz,6535000,2019
 Max Meyer,6500000,2019
-Rodrigo Hernández Cascante,6300000,2019
+Rodrigo Hernandez Cascante,6300000,2019
 Willian da Silva,6240000,2019
 Danny Drinkwater,6240000,2019
 Callum Hudson-Odoi,6240000,2019
@@ -55,11 +55,11 @@ Conor Townsend,5980000,2019
 Andriy Yarmolenko,5980000,2019
 Andre Gomes,5835000,2019
 Hector Bellerin,5720000,2019
-Tiemoué Bakayoko,5720000,2019
+Tiemoue Bakayoko,5720000,2019
 Jorge Luiz Frello Filho,5720000,2019
 Olivier Giroud,5720000,2019
 Kyle Walker,5720000,2019
-André Schurrle,5408000,2019
+Andre Schurrle,5408000,2019
 Jordan Pickford,5208333,2019
 Sead Kolasinac,5200000,2019
 Bernd Leno,5200000,2019
@@ -96,7 +96,7 @@ Wilfried Bony,4680000,2019
 Leander Dendoncker,4680000,2019
 Jan Vertonghen,4628000,2019
 Theo Walcott,4550000,2019
-Joelinton Cassio Apolinário de Lira,4500000,2019
+Joelinton Cassio Apolinario de Lira,4500000,2019
 Felipe Anderson,4420000,2019
 Kieran Tierney,4200000,2019
 Andreas Christensen,4160000,2019
@@ -135,7 +135,7 @@ Ryan Bertrand,3640000,2019
 Kevin Wimmer,3640000,2019
 Serge Aurier,3640000,2019
 Giovani Lo Celso,3640000,2019
-Abdoulaye Doucouré,3640000,2019
+Abdoulaye Doucoure,3640000,2019
 Andre Gray,3640000,2019
 Charlie Austin,3640000,2019
 Michail Antonio,3640000,2019
@@ -185,7 +185,7 @@ Daniel Podence,3120000,2019
 Adam Lallana,3042000,2019
 Reece James,3016000,2019
 Tammy Abraham,3000000,2019
-Pedro Rodríguez Ledesma,3000000,2019
+Pedro Rodriguez Ledesma,3000000,2019
 Emil Krafth,3000000,2019
 Ryan Sessegnon,3000000,2019
 Jeffrey Schlupp,2912000,2019
@@ -257,7 +257,7 @@ Jose Izquierdo,2340000,2019
 Davy Propper,2340000,2019
 Steven Defour,2340000,2019
 Joe Hart,2340000,2019
-Fabricio Agosto Ramírez,2340000,2019
+Fabricio Agosto Ramirez,2340000,2019
 Marc Albrighton,2340000,2019
 Ayoze Perez,2340000,2019
 Caglar Soyuncu,2340000,2019
@@ -298,7 +298,7 @@ Jamaal Lascelles,2080000,2019
 Fabian Schar,2080000,2019
 Ki Sung-yueng,2080000,2019
 Angus Gunn,2080000,2019
-Étienne Capoue,2080000,2019
+Etienne Capoue,2080000,2019
 Fabian Balbuena,2080000,2019
 Ryan Fredericks,2080000,2019
 Arthur Masuaku,2080000,2019
@@ -457,7 +457,7 @@ Isaac Hayden,1144000,2019
 Romain Saiss,1144000,2019
 Romain Saiss,1144000,2019
 Matt Clarke,1140000,2019
-Onel Hernández,1140000,2019
+Onel Hernandez,1140000,2019
 Emiliano Martinez,1126667,2019
 Juan Foyth,1118000,2019
 Daniel Amartey,1092000,2019
@@ -466,7 +466,7 @@ David Brooks,1040000,2019
 Joe Willock,1040000,2019
 Orjan Nyland,1040000,2019
 Bryan Mbeumo,1040000,2019
-Christian Nørgaard,1040000,2019
+Christian Norgaard,1040000,2019
 Cyrus Christie,1040000,2019
 Chris Lowe,1040000,2019
 Tommy Smith,1040000,2019
@@ -492,7 +492,7 @@ Neil Etheridge,1015000,2019
 Christoph Zimmermann,1010000,2019
 Diego Rico,1001000,2019
 Lee Tomlin,988000,2019
-Pablo Hernández,988000,2019
+Pablo Hernandez,988000,2019
 Lee Peltier,987500,2019
 Matthew Connolly,987000,2019
 Greg Cunningham,987000,2019
@@ -503,7 +503,7 @@ Leon Balogun,950000,2019
 Abdelhamid Sabiri,936000,2019
 Rajiv van La Parra,936000,2019
 Sam McQueen,936000,2019
-Adalberto Peñaranda,936000,2019
+Adalberto Penaranda,936000,2019
 Scott Hogan,910000,2019
 Marco Stiepermann,910000,2019
 Joe Lolley,910000,2019
@@ -518,7 +518,7 @@ Collin Quaner,832000,2019
 Cameron Carter-Vickers,832000,2019
 Lovre Kalinic,817000,2019
 Philip Billing,780000,2019
-Sergi Canós,780000,2019
+Sergi Canos,780000,2019
 Ethan Pinnock,780000,2019
 Jo Gorenc-Stankovic,780000,2019
 Ezgjan Alioski,780000,2019
@@ -534,7 +534,7 @@ Kyle Bartley,702000,2019
 Neeskens Kebano,700000,2019
 Eunan O'Kane,676000,2019
 Alexander Tettey,676000,2019
-Ibrahima Cissé,650000,2019
+Ibrahima Cisse,650000,2019
 Aboubakar Kamara,650000,2019
 Joao Pedro,650000,2019
 Romaine Sawyers,650000,2019
@@ -552,7 +552,7 @@ Jack Robinson,572000,2019
 Charly Musonda,550000,2019
 Gary Madine,546000,2019
 Soufyan Ahannach,520000,2019
-Robert Sánchez,520000,2019
+Robert Sanchez,520000,2019
 Stefan Johansen,520000,2019
 Barry Douglas,520000,2019
 Harvey Barnes,520000,2019
@@ -577,11 +577,11 @@ Kortney Hause,416000,2019
 Ezri Konsa,416000,2019
 Jed Steer,416000,2019
 Beni Baningime,416000,2019
-Floyd Ayité,416000,2019
+Floyd Ayite,416000,2019
 Joel Coleman,416000,2019
 Luke Ayling,416000,2019
 Stuart Dallas,416000,2019
-Emiliano Buendía,416000,2019
+Emiliano Buendia,416000,2019
 Ben Marshall,416000,2019
 Domingos Quina,416000,2019
 Sam Field,416000,2019
@@ -608,12 +608,12 @@ Julien Ngoy,260000,2019
 Thibaud Verlinden,260000,2019
 Sead Haksabanovic,260000,2019
 Kalvin Phillips,234000,2019
-Mads Bech Sørensen,208000,2019
+Mads Bech Sorensen,208000,2019
 Dara O'Shea,208000,2019
 Alfie Whiteman,200000,2019
 Dominic Thompson,182000,2019
 Tyler Roberts,182000,2019
-Jan Žambůrek,161200,2019
+Jan Zamburek,161200,2019
 Aaron Ramsdale,156000,2019
 Jack Simpson,156000,2019
 Rhys Healey,156000,2019
