@@ -1,78 +1,84 @@
-# Import all the modules required.
-import requests
 import pandas as pd
 import numpy as np
 from bs4 import BeautifulSoup
-import matplotlib.pyplot as plt
-import numpy as np
-from sklearn import linear_model, model_selection
+import requests
+from selenium import webdriver
 import time
 
-from datascraping import namesWithoutAccent
+PATH = "/Applications/chromedriver"
+driver = webdriver.Chrome(PATH)
 
-salarySiteRequest = requests.get("https://www.spotrac.com/epl/")
-salarySoup = BeautifulSoup(salarySiteRequest.text, 'html.parser')
+baseSpotRacURL = "https://www.spotrac.com/epl/rankings/"
+yearsToScrape = ["2017/", "2018/", "2019/", "2020/", "2021/"]
 
-payroll_links = []
-clubs = []
+def createDataFrame(data, year):
+    df = pd.DataFrame(data, columns=["Player", "Salary"])
+    df['Year'] = year
+    return df
 
-for club in salarySoup.find_all('div', attrs = {'class':'teamname'}):
-    clubs.append(club.text.strip())
-print("Scraped Club Links")
-for paylink in salarySoup.find_all('div', attrs = {'class':'teamoption'}):
-    if 'Payroll' in paylink.find('a').text:
-        payroll_links.append(paylink.find('a')['href'])
-print("Scraped Payroll Links")
+def convertSalaryToInt(salary_string):
+    salary_string = salary_string.replace("£", "").replace(",", "").strip()
+    return int(salary_string)
+
+def scrapePlayerSalaries(baseURL, yearToScrape, driver):
+    requestURL = baseURL + yearToScrape
+    # salaryRequest = requests.get(requestURL)
+    driver.get(requestURL)
+    time.sleep(10)
+    salarySoup = BeautifulSoup(driver.page_source, "html.parser")
+    driver.quit()
+    # print(salarySoup)
+    
+    # Extract all player names and salaries pairwise from the table
+    salaryTableBody = salarySoup.find('tbody')
+    rows = salaryTableBody.find_all('tr')
+    playerSalaries = []
+    
+    for row in rows:
+        # print(row)
+        playerName = row.find('h3').find('a').text.strip()
+        salary = row.find("td", class_="rank-value").text.strip()
         
-# Now make a list with the payroll of each club. Also want to make a list of all the player's wages
-club_payrolls = []
-players = []
-player_wages = []
-players_without_wage = []
-
-for paylink in payroll_links:
-    salaryLinkReq = requests.get(paylink)
-    indivSalarySoup = BeautifulSoup(salaryLinkReq.text, 'html.parser')
-    club_payroll = indivSalarySoup.find_all('td', attrs = {'class':'captotal'})[4].text
-    # Remove the £ sign and the , from the salary, and then convert to an int
-    club_payroll_int = int(club_payroll.replace('£', '').replace(',', ''))
-    club_payrolls.append(club_payroll_int)
+        playerSalaries.append([playerName, convertSalaryToInt(salary)])
     
-    for i in range(len(indivSalarySoup.find_all('td', attrs = {'class':'result center'}))):
-        player = indivSalarySoup.find_all('td', attrs = {'class':'player'})[2*i].find('a').text
-        players.append(player)
-        playerWage = indivSalarySoup.find_all('td', attrs = {'class':'result center'})[i].text
-        # Remove the £ sign and the , from the salary, and then convert to an int, if it's a '-' then make it 0
-        if playerWage == '- ':
-            players_without_wage.append(player)
-            playerWageInt = 0
+    return playerSalaries
+
+def outputToCSV(year):
+    yearToScrape = year + "/"
+    data = scrapePlayerSalaries(baseSpotRacURL, yearToScrape, driver)
+    df = createDataFrame(data, year)
+    df.to_csv(f"./data/salaries/spotracScrapes/scrapedSalaries{year}.csv", index=False)
+
+# change this for whatever year you want to scrape
+# outputToCSV("2021")
+
+# import all the csvs into dataframes
+df2017 = pd.read_csv('./data/salaries/spotracScrapes/scrapedSalaries2017.csv')
+df2018 = pd.read_csv('./data/salaries/spotracScrapes/scrapedSalaries2018.csv')
+df2019 = pd.read_csv('./data/salaries/spotracScrapes/scrapedSalaries2019.csv')
+df2020 = pd.read_csv('./data/salaries/spotracScrapes/scrapedSalaries2020.csv')
+df2021 = pd.read_csv('./data/salaries/spotracScrapes/scrapedSalaries2021.csv')
+
+combinedDF = pd.concat([df2017, df2018, df2019, df2020, df2021], ignore_index=True)
+
+playerSalaryDatabase = combinedDF.sort_values(['Year', 'Player'], ascending=[False, True])
+
+def keepMostRecentNonZeroSalary(df):
+    groupedDataframe = df.groupby('Player')
+    result = []
+    
+    for name, group in groupedDataframe:
+        nonZeroSalaries = group[group['Salary'] != 0]
+        
+        if not nonZeroSalaries.empty:
+            mostRecentNonZero = nonZeroSalaries.iloc[0]
+            result.append(mostRecentNonZero)
         else:
-            playerWageInt = int(playerWage.replace('£', '').replace(',', ''))
-        player_wages.append(playerWageInt) 
-        print(f"Scraped: {paylink} - {player} - {playerWage}")
-    time.sleep(0.25)
+            mostRecent = group.iloc[0]
+            result.append(mostRecent)
     
-# Now we have all the data we need, we can make a dataframe for each list and then merge them
-payrolls = pd.DataFrame({'Club':clubs, 'Anual Payroll':club_payrolls})
-salaries = pd.DataFrame({'Player':players, 'Annual salary':player_wages})
+    return pd.DataFrame(result)
 
-# only keep the players we have data for from the other database
-Filter = True
-if Filter:
-    filteredPlayers = []
-    filteredWages = []
-    for player in namesWithoutAccent:
-        if player in players:
-            filteredPlayers.append(player)
-            filteredWages.append(player_wages[players.index(player)])
-
-    filteredSalaries = pd.DataFrame({'Player':filteredPlayers, 'Annual salary':filteredWages})
-
-# Save the dataframes to CSV files
-payrolls.to_csv("./data/salaries/club_spending.csv", index=False)
-salaries.to_csv("./data/salaries/player_salaries.csv", index=False)
-filteredSalaries.to_csv("./data/salaries/filtered_player_salaries.csv", index=False)
-
-# turn players_without_wage into CSV
-players_without_wage_df = pd.DataFrame({'Player':players_without_wage})
-players_without_wage_df.to_csv("./data/salaries/players_without_wage.csv", index=False)
+playerSalaryDatabaseFiltered = keepMostRecentNonZeroSalary(playerSalaryDatabase)
+playerSalaryDatabaseFiltered.reset_index(drop=True, inplace=True)
+playerSalaryDatabaseFiltered.to_csv('./data/salaries/scrapedSalaries.csv', index=False)
