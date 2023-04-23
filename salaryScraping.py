@@ -22,12 +22,10 @@ def convertSalaryToInt(salary_string):
 
 def scrapePlayerSalaries(baseURL, yearToScrape, driver):
     requestURL = baseURL + yearToScrape
-    # salaryRequest = requests.get(requestURL)
     driver.get(requestURL)
     time.sleep(10)
     salarySoup = BeautifulSoup(driver.page_source, "html.parser")
     driver.quit()
-    # print(salarySoup)
     
     # Extract all player names and salaries pairwise from the table
     salaryTableBody = salarySoup.find('tbody')
@@ -35,7 +33,6 @@ def scrapePlayerSalaries(baseURL, yearToScrape, driver):
     playerSalaries = []
     
     for row in rows:
-        # print(row)
         playerName = row.find('h3').find('a').text.strip()
         salary = row.find("td", class_="rank-value").text.strip()
         
