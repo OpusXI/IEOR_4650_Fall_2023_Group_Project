@@ -14,13 +14,6 @@ from unidecode import unidecode
 
 ### CLUSTERING ###
 
-## Features that were selected from the player_statistical_analysis.py
-selected_features = ['full_name', 'position','shot_conversion_rate_overall',
-                      'shots_on_target_total_overall', 
-                      'passes_completed_total_overall', 'shots_total_overall',
-                      'duels_total_overall', 'min_per_card_overall',
-                      'assists_away']
-
 players_master = pd.read_csv("./data/players/england-premier-league-players-2017-to-2022-stats.csv")
 curr_players = players_master[players_master['Season']=='2021-2022']
 
@@ -29,7 +22,8 @@ curr_players['full_name'] = curr_players['full_name'].apply(unidecode)
 curr_players = curr_players[curr_players['appearances_overall']>0]
 
 
-def positions_clustering(df,position,weights,n_clusters,output=True,plot=False):
+def positions_clustering(df,position,weights,n_clusters,selected_features, 
+                         output=True,plot=False):
     
     df = df[df['position']==position][selected_features]
     X = df.drop(['full_name','position'],axis=1)
@@ -118,17 +112,39 @@ def zipSalaryData(stats, salary):
                 break
     return stats
 
+## Features that were selected from the player_statistical_analysis.py
+outfield_selected_features = ['full_name', 'position','shot_conversion_rate_overall',
+                      'shots_on_target_total_overall', 
+                      'passes_completed_total_overall', 'shots_total_overall',
+                      'duels_total_overall', 'min_per_card_overall',
+                      'assists_away']
+
 weights = [0.4, 0.2, 0.2, 0.05, 0.05, 0.05, 0.05]
-z = positions_clustering(curr_players, 'Forward', weights, 6, output=False)
+z = positions_clustering(curr_players, 'Forward', weights, 6,
+                         outfield_selected_features, output=False)
 z = zipSalaryData(z, salaryDataframe)
 z.to_csv('./data/players/forward_cluster.csv',index=False)
 
 weights = [0.4, 0.2, 0.2, 0.05, 0.05, 0.05, 0.05]
-z = positions_clustering(curr_players, 'Midfielder', weights, 6, output=False)
+z = positions_clustering(curr_players, 'Midfielder', weights, 6,
+                         outfield_selected_features, output=False)
 z = zipSalaryData(z, salaryDataframe)
 z.to_csv('./data/players/midfielder_cluster.csv',index=False)
 
 weights = [0.4, 0.2, 0.2, 0.05, 0.05, 0.05, 0.05]
-z = positions_clustering(curr_players, 'Defender', weights, 6,output=False)
+z = positions_clustering(curr_players, 'Defender', weights, 6,
+                         outfield_selected_features, output=False)
 z = zipSalaryData(z, salaryDataframe)
 z.to_csv('./data/players/defender_cluster.csv',index=False)
+
+
+goalkeeper_selected_features = ['full_name', 'position',"saves_per_game_overall",
+                                "passes_completed_total_overall", 
+                                "save_percentage_overall"]
+
+weights = [0.8, 0.1, 0.1]
+z = positions_clustering(curr_players, 'Goalkeeper', weights, 6,
+                         goalkeeper_selected_features, output=False)
+z = zipSalaryData(z, salaryDataframe)
+z.to_csv('./data/players/goalkeeper_cluster.csv',index=False)
+
