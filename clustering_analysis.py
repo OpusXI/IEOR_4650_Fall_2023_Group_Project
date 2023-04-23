@@ -100,7 +100,7 @@ def positions_clustering(df,position,weights,n_clusters,output=True,plot=False):
 def partialNameMatch(nameParts1, nameParts2):
     return set(nameParts1).issubset(set(nameParts2)) or set(nameParts2).issubset(set(nameParts1))
 
-salaryDataframe = pd.read_csv("./data/salaries/scrapedSalaries.csv")
+salaryDataframe = pd.read_csv("./data/salaries/scrapedSalariesFINAL.csv")
 
 def zipSalaryData(stats, salary):
     #add salary column to stats dataframe
@@ -125,8 +125,10 @@ z.to_csv('./data/players/forward_cluster.csv',index=False)
 
 weights = [0.4, 0.2, 0.2, 0.05, 0.05, 0.05, 0.05]
 z = positions_clustering(curr_players, 'Midfielder', weights, 6, output=False)
+z = zipSalaryData(z, salaryDataframe)
 z.to_csv('./data/players/midfielder_cluster.csv',index=False)
 
 weights = [0.4, 0.2, 0.2, 0.05, 0.05, 0.05, 0.05]
 z = positions_clustering(curr_players, 'Defender', weights, 6,output=False)
+z = zipSalaryData(z, salaryDataframe)
 z.to_csv('./data/players/defender_cluster.csv',index=False)
