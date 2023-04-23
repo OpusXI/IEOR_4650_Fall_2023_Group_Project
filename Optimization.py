@@ -1,28 +1,25 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
-
 import pandas as pd
 from numpy import mean
 import numpy as np
 
 import scipy.stats as stats
-from featurewiz import FeatureWiz
+# from featurewiz import FeatureWiz
 
 from sklearn.model_selection import train_test_split, KFold, cross_val_score
 from sklearn.linear_model import LassoCV, Lasso
-from lazypredict.Supervised import LazyRegressor
+# from lazypredict.Supervised import LazyRegressor
 from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
 
 from gurobipy import Model, GRB, quicksum, max_
 
+forwardCluster = pd.read_csv('./data/players/forward_cluster.csv')
+midfielderCluster = pd.read_csv('./data/players/midfielder_cluster.csv')
+defenderCluster = pd.read_csv('./data/players/defender_cluster.csv')
+goalkeeperCluster = pd.read_csv('./data/players/goalkeeper_cluster.csv')
 
-# In[1]:
-
+totalFrame = pd.concat([forwardCluster, midfielderCluster, defenderCluster, goalkeeperCluster])
 
 def team_builder(df, budget, num_gk, num_def, num_mid, num_for):
     try:
@@ -55,27 +52,14 @@ def team_builder(df, budget, num_gk, num_def, num_mid, num_for):
         # Solve the model
         m.optimize()
 
-        r = pd.DataFrame()
-
-        for v in m.getVars():
-            if v.x > 1e-6:
-                r = r.append(df.iloc[v.index][['full_name','position', 'salary']])
-
-        col = {'full_name':[],'position':[],'salary':[]} 
-        team_stats = pd.DataFrame(col)
-
-        for i in r['full_name']:
-            x = df[df['full_name']==i]
-            x = x[['full_name','position','salary']] #add cols
-            team_stats= team_stats.append(x)
-        print(team_stats['salary'].sum())
+        selected_indices = [v.index for v in m.getVars() if v.x > 1e-6]
+        r = df.iloc[selected_indices][['full_name','position', 'salary']]
+        team_stats = r[['full_name','position','salary']]
+        
         return team_stats
     except AttributeError:
         return "There are no teams that meet the budget."
 
 
-# In[ ]:
-
-
-
-
+team = team_builder(totalFrame, 1000, 1, 4, 4, 2)
+print(team)

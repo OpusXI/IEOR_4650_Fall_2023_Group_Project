@@ -4,8 +4,32 @@ import pandas as pd
 
 from clustering_analysis import positions_clustering
 from clustering_analysis import curr_players
+from clustering_analysis import zipSalaryData
 
-from Optimization_Final import team_builder
+from Optimization import team_builder
+
+def format_dataframe(df):
+    positions = ['Forward', 'Midfielder', 'Defender', 'Goalkeeper']
+    output_str = ""
+    total_cost = 0
+
+    for position in positions:
+        output_str += f"{position.upper()}S\n"
+        output_str += "--------------------------------\n"
+
+        position_df = df[df['position'] == position]
+
+        for index, row in position_df.iterrows():
+            name = row['full_name']
+            salary = row['salary']
+            output_str += f"{name} ({salary})\n"
+            total_cost += salary
+
+        output_str += "--------------------------------\n"
+
+    output_str += f"TOTAL COST: {total_cost}"
+    return output_str
+
 
 def calculate():
     ### GET INPUT WEIGHTS FROM GUI ###
@@ -23,6 +47,7 @@ def calculate():
     
     ### GET BUDGET CONSTRAINT ###
     budget = int(budget_var.get())
+    salaryDataframe = pd.read_csv("./data/salaries/scrapedSalariesFINAL.csv")
     
     ### GET POSITION CONSTRAINTS ###
     num_players = [var.get() for var in dropdown_vars]
@@ -43,16 +68,30 @@ def calculate():
                                 "save_percentage_overall"]
     
     forwardRankingFrame = positions_clustering(curr_players, 'Forward', weightsFwd, numClusters, outfield_selected_features,output=False)
+    forwardRankingFrameInput = zipSalaryData(forwardRankingFrame, salaryDataframe)
+    
     midfielderRankingFrame = positions_clustering(curr_players, 'Midfielder', weightsMid, numClusters, outfield_selected_features, output=False)
+    midfielderRankingFrameInput = zipSalaryData(midfielderRankingFrame, salaryDataframe)
+    
     defenderRankingFrame = positions_clustering(curr_players, 'Defender', weightsDef, numClusters, outfield_selected_features, output=False)
+    defenderRankingFrameInput = zipSalaryData(defenderRankingFrame, salaryDataframe)
+    
     goalkeeperRankingFrame = positions_clustering(curr_players, 'Goalkeeper', weightsGK, numClusters, goalkeeper_selected_features, output=False)
-    totalFrame = pd.concat([forwardRankingFrame, midfielderRankingFrame, defenderRankingFrame, goalkeeperRankingFrame])
+    goalkeeperRankingFrameInput = zipSalaryData(goalkeeperRankingFrame, salaryDataframe)
+    
+    totalFrame = pd.concat([forwardRankingFrameInput, midfielderRankingFrameInput, defenderRankingFrameInput, goalkeeperRankingFrameInput])
     
     ### TEAM BUILDING FUNCTION CALL HERE###
     teamDataframe = team_builder(totalFrame, budget, numGK, numDef, numMid, numFwd)
     print(teamDataframe)
+
+    ### OUTPUT TO GUI ###
+    if type(teamDataframe) == str:
+        outString = teamDataframe
+    else:
+        outString = format_dataframe(teamDataframe)
     
-    output_text = f"Position Count: {num_players}\nBudget: {budget}\n"
+    output_text = f"{outString}"
     output_box.config(state="normal")
     output_box.delete(1.0, tk.END)
     output_box.insert(tk.END, output_text)

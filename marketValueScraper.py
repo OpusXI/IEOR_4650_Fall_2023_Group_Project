@@ -6,6 +6,7 @@ import re
 import time
 import csv
 from tqdm import tqdm
+from unidecode import unidecode
 
 headers = {'User-Agent': 
             'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36'}
@@ -28,7 +29,7 @@ def convert_market_value(value):
 
     return value
 
-def scrapeTeamLinks():
+def scrapeTeamLinks(year):
     premierLeagueSummaryPage = "https://www.transfermarkt.us/premier-league/marktwerteverein/wettbewerb/GB1"
 
     premierLeagueSummaryPageRequest = requests.get(premierLeagueSummaryPage, headers=headers)
@@ -40,7 +41,7 @@ def scrapeTeamLinks():
     for link in premierLeagueSummaryPageSoup.find_all('a', href=True):
         if re.match(r'/\S+/startseite/verein/\d+/saison_id/\d+', link['href']):
             # replace the 2022 in the link with 2021 to get the 2021/2022 season
-            link = link['href'].replace('2022', '2021')
+            link = link['href'].replace('2022', f'{year}')
             teamRosterLinks.append(link)
         
         uniqueTeamRosterLinks = np.unique(teamRosterLinks)
@@ -48,7 +49,7 @@ def scrapeTeamLinks():
         
     return uniqueTeamRosterLinks
 
-def scrapePlayerValues(teamRosterLinks):
+def scrapePlayerValues(teamRosterLinks, year):
     playerData = []
     for link in tqdm(teamRosterLinks, desc="Scraping team rosters", ncols=100):
         requestLink = "https://www.transfermarkt.us" + link
@@ -64,8 +65,13 @@ def scrapePlayerValues(teamRosterLinks):
             player_name_cell = row.find("td", {"class": "hauptlink"})
             if player_name_cell:
                 player_name = player_name_cell.find("a", {"title": True}, recursive=False)
+                try:
+                    player_name = unidecode(player_name)
+                except AttributeError:
+                    pass
                 if not player_name:
                     player_name = player_name_cell.find("a", {"title": True})
+                    player_name = unidecode(player_name)
                 if player_name:
                     player_info.append(player_name["title"])
 
@@ -79,14 +85,47 @@ def scrapePlayerValues(teamRosterLinks):
 
             time.sleep(0.25)
 
-    with open('./data/salaries/marketValues.csv', 'w', newline='', encoding='utf-8') as csvfile:
-        writer = csv.writer(csvfile)
-        for player in playerData:
-            writer.writerow(player)
+    playerDataframe = pd.DataFrame(playerData, columns=['full_name', 'market_value'])
+    playerDataframe['year'] = year
 
-    return playerData
+    return playerDataframe
 
+def keepMostRecentNonZeroSalary(df):
+    groupedDataframe = df.groupby('full_name')
+    result = []
+    
+    for name, group in groupedDataframe:
+        nonZeroSalaries = group[group['market_value'] != 0]
         
-teamLinks = scrapeTeamLinks()
-# print(teamLinks)
-scrapePlayerValues(teamLinks)
+        if not nonZeroSalaries.empty:
+            mostRecentNonZero = nonZeroSalaries.iloc[0]
+            result.append(mostRecentNonZero)
+        else:
+            mostRecent = group.iloc[0]
+            result.append(mostRecent)
+    
+    return pd.DataFrame(result)
+
+scrape = True
+concat = True
+
+if scrape:    
+    teamLinks2021 = scrapeTeamLinks('2021')
+    data2021 = scrapePlayerValues(teamLinks2021, "2021")
+
+    teamLinks2020 = scrapeTeamLinks('2020')
+    data2020 = scrapePlayerValues(teamLinks2020, "2020")
+
+    teamLinks2019 = scrapeTeamLinks('2019')
+    data2019 = scrapePlayerValues(teamLinks2019, "2019")
+    
+    teamLinks2018 = scrapeTeamLinks('2018')
+    data2018 = scrapePlayerValues(teamLinks2019, "2018")
+    
+    teamLinks2017 = scrapeTeamLinks('2017')
+    data2017 = scrapePlayerValues(teamLinks2019, "2017")
+    
+if concat:
+    mvDatabase = pd.concat([data2021, data2020, data2019, data2018, data2017])
+    finalDatabase = keepMostRecentNonZeroSalary(mvDatabase)
+    finalDatabase.to_csv('./data/salaries/marketValueDatabase.csv', index=False)
