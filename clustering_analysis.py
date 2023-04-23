@@ -101,4 +101,3 @@ z = positions_clustering(curr_players, 'Midfielder', weights, 6, output=True)
 
 weights = [0.4, 0.2, 0.2, 0.05, 0.05, 0.05, 0.05]
 z = positions_clustering(curr_players, 'Defender', weights, 6,output=True)
-
