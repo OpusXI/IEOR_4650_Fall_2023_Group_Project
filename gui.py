@@ -10,7 +10,7 @@ def calculate():
     numClusters = 6
     
     for i in range(4):
-        tab_weights = [float(manual_entry_vars[i][j].get()) for j in range(7)]
+        tab_weights = [float(manual_entry_vars[i][j].get()) for j in range(len(manual_entry_vars[i]))]
         weights.append(tab_weights)
     
     weightsGK = weights[0]
@@ -35,21 +35,9 @@ def calculate():
     defenderRankingFrame = positions_clustering(curr_players, 'Defender', weightsDef, numClusters, output=False)
     # goalkeeperRankingFrame = positions_clustering(curr_players, 'Goalkeeper', weightsGK, numClusters, output=False)
     
-    # filter the ranking frames to only include players with ranking 1 and then take the maximum of the performance column and take the name of the player
-    topForwards = forwardRankingFrame[forwardRankingFrame['rankings'] == 1]
-    topMidfielders = midfielderRankingFrame[midfielderRankingFrame['rankings'] == 1]
-    topDefenders = defenderRankingFrame[defenderRankingFrame['rankings'] == 1]
-    # topGoalkeepers = goalkeeperRankingFrame[goalkeeperRankingFrame['rankings'] == 1]
-    
-    #take the max of the performance column and take the name of the player
-    topForward = topForwards[topForwards['performance'] == topForwards['performance'].max()]['full_name'].values[0]
-    topMidfielder = topMidfielders[topMidfielders['performance'] == topMidfielders['performance'].max()]['full_name'].values[0]
-    topDefender = topDefenders[topDefenders['performance'] == topDefenders['performance'].max()]['full_name'].values[0]
-    # topGoalkeeper = 'Not Implemented'
-    
     # Call team building function here
     
-    output_text = f"Top Attacker: {topForward}\nTop Midfielder: {topMidfielder}\nTop Defender: {topDefender}\n"
+    output_text = f"Position Count: {num_players}\nBudget: {budget}\n"
     output_box.config(state="normal")
     output_box.delete(1.0, tk.END)
     output_box.insert(tk.END, output_text)
@@ -59,10 +47,10 @@ def calculate():
 def update_total_players(*args):
     total_players = sum([var.get() for var in dropdown_vars])
     total_players_label.config(text=f"Total players: {total_players}")
-    if total_players > 11:
+    if total_players < 11:
         total_players_label.config(fg="red")
     else:
-        total_players_label.config(fg="black")
+        total_players_label.config(fg="green")
 
 def manual_entry_update(i, j):
     def inner_function(*args):
@@ -107,7 +95,7 @@ slider_notebook.pack(side=tk.LEFT, padx=10)
 
 tab_labels = ['GK', 'DEF', 'MID', 'FWD']
 slider_labels = [
-    ["Shot Conv. Rate", "Shots on Target", "Passes Completed", "Shot Total", "Duels Total", "Mins per Card", "Assists"],
+    ["Avg. Saves", "Penalties Saved", "Clean Sheets", "Avg. Passes", "Acc. Long Balls"],
     ["Shot Conv. Rate", "Shots on Target", "Passes Completed", "Shot Total", "Duels Total", "Mins per Card", "Assists"],
     ["Shot Conv. Rate", "Shots on Target", "Passes Completed", "Shot Total", "Duels Total", "Mins per Card", "Assists"],
     ["Shot Conv. Rate", "Shots on Target", "Passes Completed", "Shot Total", "Duels Total", "Mins per Card", "Assists"]
@@ -118,7 +106,7 @@ sum_labels = []
 
 # Default values for each tab
 default_values = [
-    ["0.10", "0.20", "0.15", "0.05", "0.25", "0.15", "0.10"],
+    ["0.20", "0.20", "0.20", "0.20", "0.20"],
     ["0.30", "0.10", "0.20", "0.10", "0.10", "0.10", "0.10"],
     ["0.15", "0.15", "0.15", "0.15", "0.20", "0.10", "0.10"],
     ["0.40", "0.20", "0.20", "0.10", "0.05", "0.03", "0.02"]
@@ -129,7 +117,7 @@ for i in range(4):
     slider_notebook.add(tab_frame, text=tab_labels[i])
 
     tab_manual_entries = []
-    for j in range(7):
+    for j in range(len(slider_labels[i])):
         slider_label = tk.Label(tab_frame, text=slider_labels[i][j])
         slider_label.grid(row=j, column=0, padx=10, pady=5)
 
@@ -158,7 +146,7 @@ output_box.pack(side=tk.LEFT, padx=10, pady=(0, 10))
 budget_frame = tk.Frame(root)
 budget_frame.pack(side=tk.BOTTOM, pady=10, fill=tk.X)
 
-budget_label = tk.Label(budget_frame, text="Budget:")
+budget_label = tk.Label(budget_frame, text="Budget (£):")
 budget_label.pack(side=tk.LEFT, padx=10)
 
 budget_var = tk.StringVar()
@@ -170,6 +158,7 @@ calculate_button = tk.Button(budget_frame, text="Calculate", command=calculate)
 calculate_button.pack(side=tk.LEFT, padx=10)
 
 total_players_label = tk.Label(budget_frame, text="Total players: 0")
+total_players_label.config(fg="red")
 total_players_label.pack(side=tk.RIGHT, padx=10)
 
 root.mainloop()
