@@ -63,7 +63,7 @@ def manual_entry_update(i, j):
     return inner_function
 
 def update_sum_label(i):
-    current_sum = sum(float(manual_entry_vars[i][j].get()) for j in range(7))
+    current_sum = sum(float(manual_entry_vars[i][j].get()) for j in range(len(manual_entry_vars[i])))
     sum_labels[i].config(text=f"Sum: {current_sum:.2f}")
 
 root = tk.Tk()

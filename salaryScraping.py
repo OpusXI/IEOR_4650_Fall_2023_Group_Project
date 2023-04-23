@@ -50,7 +50,7 @@ def outputToCSV(year):
     df.to_csv(f"./data/salaries/spotracScrapes/scrapedSalaries{year}.csv", index=False)
 
 # change this for whatever year you want to scrape
-# outputToCSV("2021")
+# outputToCSV("2017")
 
 # import all the csvs into dataframes
 df2017 = pd.read_csv('./data/salaries/spotracScrapes/scrapedSalaries2017.csv')
