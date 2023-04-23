@@ -5,6 +5,8 @@ import pandas as pd
 from clustering_analysis import positions_clustering
 from clustering_analysis import curr_players
 
+from Optimization_Final import team_builder
+
 def calculate():
     ### GET INPUT WEIGHTS FROM GUI ###
     weights = []
@@ -47,6 +49,8 @@ def calculate():
     totalFrame = pd.concat([forwardRankingFrame, midfielderRankingFrame, defenderRankingFrame, goalkeeperRankingFrame])
     
     ### TEAM BUILDING FUNCTION CALL HERE###
+    teamDataframe = team_builder(totalFrame, budget, numGK, numDef, numMid, numFwd)
+    print(teamDataframe)
     
     output_text = f"Position Count: {num_players}\nBudget: {budget}\n"
     output_box.config(state="normal")
