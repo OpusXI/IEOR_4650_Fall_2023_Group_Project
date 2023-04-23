@@ -1,11 +1,12 @@
 import tkinter as tk
 from tkinter import ttk
+import pandas as pd
 
 from clustering_analysis import positions_clustering
 from clustering_analysis import curr_players
 
 def calculate():
-    # Grab weights from manual_entry_vars
+    ### GET INPUT WEIGHTS FROM GUI ###
     weights = []
     numClusters = 6
     
@@ -18,24 +19,34 @@ def calculate():
     weightsMid = weights[2]
     weightsFwd = weights[3]
     
-    # Grab budget integer from budget_entry
+    ### GET BUDGET CONSTRAINT ###
     budget = int(budget_var.get())
     
-    # Get number of players for each position in dropdown_vars
+    ### GET POSITION CONSTRAINTS ###
     num_players = [var.get() for var in dropdown_vars]
-    
     numGK = num_players[0]
     numDef = num_players[1]
     numMid = num_players[2]
     numFwd = num_players[3]
     
-    # Call clustering ranking function here
-    forwardRankingFrame = positions_clustering(curr_players, 'Forward', weightsFwd, numClusters, output=False)
-    midfielderRankingFrame = positions_clustering(curr_players, 'Midfielder', weightsMid, numClusters, output=False)
-    defenderRankingFrame = positions_clustering(curr_players, 'Defender', weightsDef, numClusters, output=False)
-    # goalkeeperRankingFrame = positions_clustering(curr_players, 'Goalkeeper', weightsGK, numClusters, output=False)
+    ### SET FEATURES AND CLUSTER-RANK ###
+    outfield_selected_features = ['full_name', 'position','shot_conversion_rate_overall',
+                      'shots_on_target_total_overall', 
+                      'passes_completed_total_overall', 'shots_total_overall',
+                      'duels_total_overall', 'min_per_card_overall',
+                      'assists_away']
     
-    # Call team building function here
+    goalkeeper_selected_features = ['full_name', 'position',"saves_per_game_overall",
+                                "passes_completed_total_overall", 
+                                "save_percentage_overall"]
+    
+    forwardRankingFrame = positions_clustering(curr_players, 'Forward', weightsFwd, numClusters, outfield_selected_features,output=False)
+    midfielderRankingFrame = positions_clustering(curr_players, 'Midfielder', weightsMid, numClusters, outfield_selected_features, output=False)
+    defenderRankingFrame = positions_clustering(curr_players, 'Defender', weightsDef, numClusters, outfield_selected_features, output=False)
+    goalkeeperRankingFrame = positions_clustering(curr_players, 'Goalkeeper', weightsGK, numClusters, goalkeeper_selected_features, output=False)
+    totalFrame = pd.concat([forwardRankingFrame, midfielderRankingFrame, defenderRankingFrame, goalkeeperRankingFrame])
+    
+    ### TEAM BUILDING FUNCTION CALL HERE###
     
     output_text = f"Position Count: {num_players}\nBudget: {budget}\n"
     output_box.config(state="normal")
@@ -95,7 +106,7 @@ slider_notebook.pack(side=tk.LEFT, padx=10)
 
 tab_labels = ['GK', 'DEF', 'MID', 'FWD']
 slider_labels = [
-    ["Avg. Saves", "Penalties Saved", "Clean Sheets", "Avg. Passes", "Acc. Long Balls"],
+    ["Saves/Game", "Passes Completed", "Save %"],
     ["Shot Conv. Rate", "Shots on Target", "Passes Completed", "Shot Total", "Duels Total", "Mins per Card", "Assists"],
     ["Shot Conv. Rate", "Shots on Target", "Passes Completed", "Shot Total", "Duels Total", "Mins per Card", "Assists"],
     ["Shot Conv. Rate", "Shots on Target", "Passes Completed", "Shot Total", "Duels Total", "Mins per Card", "Assists"]
@@ -106,7 +117,7 @@ sum_labels = []
 
 # Default values for each tab
 default_values = [
-    ["0.20", "0.20", "0.20", "0.20", "0.20"],
+    ["0.80", "0.10", "0.10"],
     ["0.30", "0.10", "0.20", "0.10", "0.10", "0.10", "0.10"],
     ["0.15", "0.15", "0.15", "0.15", "0.20", "0.10", "0.10"],
     ["0.40", "0.20", "0.20", "0.10", "0.05", "0.03", "0.02"]
