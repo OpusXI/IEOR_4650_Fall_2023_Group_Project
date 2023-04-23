@@ -7,7 +7,7 @@ playersDef = pd.read_csv("./data/players/clustered_defs.csv")
 
 playersLargeDataset = pd.concat([playersFwd, playersMid, playersDef], ignore_index=True)
 
-playersSalaryDataset = pd.read_csv("./data/salaries/player_salaries.csv")
+playersSalaryDataset = pd.read_csv("./data/salaries/scrapedSalaries.csv")
 
 playerVector1 = playersLargeDataset['full_name'].to_numpy()
 playerVector2 = playersSalaryDataset['Player'].to_numpy()
