@@ -10,7 +10,7 @@ from Optimization import team_builder
 
 def format_dataframe(df):
     positions = ['Forward', 'Midfielder', 'Defender', 'Goalkeeper']
-    output_str = ""
+    output_str = "--------------------------------\n"
     total_cost = 0
 
     for position in positions:
