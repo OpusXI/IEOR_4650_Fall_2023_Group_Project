@@ -30,6 +30,8 @@ def format_dataframe(df):
     output_str += f"TOTAL COST: {total_cost}"
     return output_str
 
+def export_clustering(*args):
+    export_clustering_var.set(export_clustering_var.get())
 
 def calculate():
     ### GET INPUT WEIGHTS FROM GUI ###
@@ -91,6 +93,9 @@ def calculate():
     else:
         outString = format_dataframe(teamDataframe)
     
+    if export_clustering_var.get():
+        totalFrame.to_csv("./data/clustering_output/USER_clustering_output.csv", index=False)
+    
     output_text = f"{outString}"
     output_box.config(state="normal")
     output_box.delete(1.0, tk.END)
@@ -122,8 +127,8 @@ def update_sum_label(i):
 
 root = tk.Tk()
 root.title("FutMoneybol")
-root.geometry("730x500")
-root.resizable(False, False)
+root.geometry("730x540")
+# root.resizable(False, False)
 
 top_frame = tk.Frame(root)
 top_frame.pack(pady=10)
@@ -199,6 +204,16 @@ output_box.pack(side=tk.LEFT, padx=10, pady=(0, 10))
 
 budget_frame = tk.Frame(root)
 budget_frame.pack(side=tk.BOTTOM, pady=10, fill=tk.X)
+
+# Create a new frame for the checkbox
+checkbox_frame = tk.Frame(root)
+checkbox_frame.pack(side=tk.BOTTOM, pady=(0, 10), fill=tk.X)
+
+# Add the export clustering checkbox
+export_clustering_var = tk.BooleanVar()
+export_clustering_var.trace("w", export_clustering)
+export_clustering_checkbox = tk.Checkbutton(checkbox_frame, text="Export clusterings to CSV", variable=export_clustering_var)
+export_clustering_checkbox.pack(side=tk.TOP, pady=(0, 10))
 
 budget_label = tk.Label(budget_frame, text="Budget (£):")
 budget_label.pack(side=tk.LEFT, padx=10)
