@@ -128,7 +128,7 @@ def update_sum_label(i):
 root = tk.Tk()
 root.title("FutMoneybol")
 root.geometry("730x540")
-# root.resizable(False, False)
+root.resizable(False, False)
 
 top_frame = tk.Frame(root)
 top_frame.pack(pady=10)
